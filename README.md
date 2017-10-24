@@ -1,7 +1,14 @@
 # ADSAuthorAffiliationService
 A service for creating author/affiliation spreadsheets
 
-The directory classic contains the code which is running the Classic
-implementation of this service.  Its main functions are:
-* Given a list of bibcodes, output a JSON structure which shows the list of co-author names, their affiliations and year ranges
-* Given a list of selected names, export the list as a CSV or Excel file
+#### Make a request:
+
+`curl -H "Content-Type: application/json" -X POST -d <payload> <endpoint>`
+
+
+* where `<endpoint>` is /authoraff,
+* and `<payload>` should contain list of comma separated bibcodes, 
+and two optional parameters, maxauthor (num of authors to consider 
+for each article, default is 0, to include all) and cutoffyear 
+(only include articles with publication year included and after 
+this, default is 10 years)
