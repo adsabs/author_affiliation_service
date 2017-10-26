@@ -6,11 +6,8 @@
     entrypoint wsgi script
 """
 
-import os
 from werkzeug.serving import run_simple
 from authoraffsrv import app
-
-os.environ["AUTHORAFF_SOLRQUERY_URL"] = "http://api.adsabs.harvard.edu/v1/search/bigquery"
 
 application = app.create_app()
 

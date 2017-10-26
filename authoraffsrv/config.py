@@ -2,4 +2,5 @@
 # -*- coding: utf-8 -*-
 
 
-EXPORT_SERVICE_ADSWS_API_TOKEN = 'Bearer:eQhhOLITyCD1B2Afuxf2b5LdTpFTl5WaepVI7Dn0'
+AUTHOR_AFFILIATION_SOLRQUERY_URL = "http://api.adsabs.harvard.edu/v1/search/bigquery"
+AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN = 'this is a secret api token!'

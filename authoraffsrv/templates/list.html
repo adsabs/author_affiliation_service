@@ -74,7 +74,7 @@
                     <td valign="top">
                         {% for aff in value %}
                             {% if aff != None %}
-                                <input type=checkbox id="id_{{ key }}_aff_{{ aff }}" name="aff_checkbox"
+                                <input type=checkbox id="id_{{ key }}_aff_{{ aff }}" name="aff_checkbox" onclick="affiliation(this);"
                                        {%if loop.index0 == 0%} checked class="first" {%endif%} >
                                 <label for="id_{{ key }}_aff_{{ aff }}">{{ aff }}</label>
                                 <br>
@@ -116,6 +116,17 @@ $(".author").click(function()  {
         $(this).closest('td').siblings().find('.first').prop('checked', true);
     }
 });
+
+// if all affiliations is removed, uncheck the author
+function affiliation(control)
+{
+    if (! $(control).is(':checked')) {
+        if ($(control).siblings().filter(':checked').length == 0)
+            $(control).parents('tr').find(':checkbox').prop('checked', false);
+    }  else {
+        $(control).parents('tr').find(':checkbox').filter('.author').prop('checked', true);
+    }
+};
 
 // synchronize the top and bottom export selects
 function synchronize_export_lists(list)

@@ -59,12 +59,14 @@ class Export(object):
 
     REGEX_SELECTED_ITEM = re.compile(r'id_(.+?)_aff_(.+?)?\s\(')
 
+    logger = None
+
     def __init__(self, from_form):
         """
         parse data from form and put it in a dict
         :param from_form: data from form
         """
-        setup_global_logging()
+        self.logger = setup_logging('authoraff_service', current_app.config.get('LOG_LEVEL', 'INFO'))
 
         self.selected_authors = {}
         if len(from_form) > 0:
@@ -212,12 +214,28 @@ class Export(object):
         if status == 200:
             r.headers['content-type'] = content_type
             r.headers['content-disposition'] = content_disposition
-            logger.debug('returning results with status code 200')
+            self.logger.debug('returning results with status code 200')
         else:
             r.headers['content-type'] = 'text/plain'
-            logger.error('{} status code = {}'.format(response, status))
+            self.logger.error('{} status code = {}'.format(response, status))
 
         return r
+
+
+    def format(self, export_format):
+        if export_format == EXPORT_FORMATS[0]:
+            return self.__export_to_csv()
+        if export_format == EXPORT_FORMATS[1]:
+            return self.__export_to_csv_div()
+        if export_format == EXPORT_FORMATS[2]:
+            return self.__export_to_excel()
+        if export_format == EXPORT_FORMATS[3]:
+            return self.__export_to_excel_div()
+        if export_format == EXPORT_FORMATS[4]:
+            return self.__export_to_text()
+        if export_format == EXPORT_FORMATS[5]:
+            return self.__export_to_text()
+        return ''
 
 
     def get(self, export_format):
@@ -240,11 +258,11 @@ class Export(object):
                                    'attachment;filename=ADS_Author-Affiliation.xls',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[3]:
-                content = self.__export_to_excel_div()
-                return self.__return_response(content,
-                                       'text/xls; charset=UTF-8',
-                                       'attachment;filename=ADS_Author-Affiliation.xls',
-                                       200 if len(content) > 0 else 400)
+            content = self.__export_to_excel_div()
+            return self.__return_response(content,
+                                   'text/xls; charset=UTF-8',
+                                   'attachment;filename=ADS_Author-Affiliation.xls',
+                                   200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[4]:
             content = self.__export_to_text()
             return self.__return_response(content,
@@ -323,6 +341,7 @@ class Formatter:
         :param max_author: max number of authors to fetch for each article
         :param cut_offyear: do not include the year if it is less than this
         """
+        print 'in __getlist'
         if (self.status == 0):
             author_aff = []
             for index in range(self.get_num_docs()):
@@ -342,25 +361,36 @@ class Formatter:
         for each author merge their affiliation and publication year, and then return a sorted dict
         :param the_list:
         """
+        print 'in '
         the_dict = {}
         for item in the_list:
             the_dict.setdefault(item[0], []).append('{} ({})'.format(item[1] if item[1] != None else '', item[2]))
+            print the_dict
         return OrderedDict(sorted(the_dict.items()))
 
 
     def get(self, max_author, cutoff_year):
+        print 'in get calling __get_list'
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
+            return self.__merge_aff(the_list)
+        return None
+
+
+    def show(self, max_author, cutoff_year):
+        print 'in show calling get'
+        authordict = self.get(max_author, cutoff_year)
+        if authordict:
             return render_template('list.html',
-                                   authordict=self.__merge_aff(the_list),
+                                   authordict=authordict,
                                    exportlist=EXPORT_FORMATS)
-
-
+        return render_template('400.html')
 
 
 def setup_global_logging():
     global logger
-    logger = setup_logging('authoraff_service', current_app.config.get('LOG_LEVEL', 'INFO'))
+    if (logger == None):
+        logger = setup_logging('authoraff_service', current_app.config.get('LOG_LEVEL', 'INFO'))
 
 
 def return_response(response, status):
@@ -378,8 +408,6 @@ def return_response(response, status):
     return r
 
 
-from authoraffsrv.tests.unittests.stubdata import solrdata      #delete when switched
-
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/authoraff', methods=['POST'])
 def author_aff():
@@ -389,8 +417,6 @@ def author_aff():
         payload = request.get_json(force=True)  # post data in json
     except:
         payload = dict(request.form)  # post data in form encoding
-
-    print payload
 
     if not payload:
         return return_response('error: no information received', 400)
@@ -416,9 +442,8 @@ def author_aff():
         max_author=max_author,
         cutoff_year=cutoff_year))
 
-    #from_solr = get_solr_data(bibcodes=bibcodes)
-    from_solr = solrdata.data  # delete when switched
-    return Formatter(from_solr).get(max_author, cutoff_year)
+    from_solr = get_solr_data(bibcodes=bibcodes)
+    return Formatter(from_solr).show(max_author, cutoff_year)
 
 
 @bp.route('/export_selection_top', methods=['POST'])
@@ -431,20 +456,3 @@ def export_selection_top():
 def export_selection_bottom():
     jsonData = json.loads(request.form['selected_info_bottom'])
     return Export(jsonData['selected']).get(jsonData['format'])
-
-
-@bp.route('/testing', methods=['POST'])
-def client():
-    from_solr = solrdata.data
-    jsonData = json.loads(request.form['selected_info'])
-    max_author = 0
-    maxauthor = jsonData['maxauthor']
-    if (len(maxauthor) > 0):
-        if maxauthor.isdigit():
-            max_author = int(maxauthor)
-    cutoff_year = 2007
-    cutoffyear = jsonData['cutoffyear']
-    if (len(cutoffyear) > 0):
-        if cutoffyear.isdigit():
-            cutoff_year = int(cutoffyear)
-    return Formatter(from_solr).get(max_author, cutoff_year)
