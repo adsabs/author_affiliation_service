@@ -341,7 +341,6 @@ class Formatter:
         :param max_author: max number of authors to fetch for each article
         :param cut_offyear: do not include the year if it is less than this
         """
-        print 'in __getlist'
         if (self.status == 0):
             author_aff = []
             for index in range(self.get_num_docs()):
@@ -361,16 +360,13 @@ class Formatter:
         for each author merge their affiliation and publication year, and then return a sorted dict
         :param the_list:
         """
-        print 'in '
         the_dict = {}
         for item in the_list:
-            the_dict.setdefault(item[0], []).append('{} ({})'.format(item[1] if item[1] != None else '', item[2]))
-            print the_dict
+            the_dict.setdefault(item[0], []).append(item[1] if item[1] != None else '' + ' (' + item[2] + ')')
         return OrderedDict(sorted(the_dict.items()))
 
 
     def get(self, max_author, cutoff_year):
-        print 'in get calling __get_list'
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
             return self.__merge_aff(the_list)
@@ -378,7 +374,6 @@ class Formatter:
 
 
     def show(self, max_author, cutoff_year):
-        print 'in show calling get'
         authordict = self.get(max_author, cutoff_year)
         if authordict:
             return render_template('list.html',
