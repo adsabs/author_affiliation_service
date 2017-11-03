@@ -362,7 +362,7 @@ class Formatter:
         """
         the_dict = {}
         for item in the_list:
-            the_dict.setdefault(item[0], []).append(item[1] if item[1] != None else '' + ' (' + item[2] + ')')
+            the_dict.setdefault(item[0], []).append(item[1] + ' (' + item[2] + ')' if item[1]  != None else '' + ' (' + item[2] + ')')
         return OrderedDict(sorted(the_dict.items()))
 
 
