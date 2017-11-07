@@ -14,7 +14,7 @@ import unittest
 import authoraffsrv.app as app
 from authoraffsrv.tests.unittests.stubdata import solrdata, formatted, export
 from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS
-from authoraffsrv.models import get_solr_data
+from authoraffsrv.utils import get_solr_data
 
 class TestAuthorAffiliation(TestCase):
     def create_app(self):
