@@ -1,0 +1,3 @@
+[run]
+source = authoraffsrv
+omit = authoraffsrv/tests*

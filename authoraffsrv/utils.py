@@ -5,11 +5,13 @@ import requests
 
 from adsmutils import setup_logging
 
-import authoraffsrv
 from authoraffsrv.client import client
 
 global logger
 logger = None
+
+
+AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR = 6000
 
 def get_solr_data(bibcodes, start=0, sort='date desc'):
     global logger
@@ -18,7 +20,7 @@ def get_solr_data(bibcodes, start=0, sort='date desc'):
 
     data = 'bibcode\n' + '\n'.join(bibcodes)
 
-    rows = min(6000, len(bibcodes))
+    rows = min(AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR, len(bibcodes))
 
     fields = 'author,aff,year'
 
@@ -32,7 +34,7 @@ def get_solr_data(bibcodes, start=0, sort='date desc'):
         'fq': '{!bitset}'
     }
 
-    headers = {'Authorization':'Bearer:'+current_app.config['AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN']}
+    headers = {'Authorization':'Bearer '+current_app.config['AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN']}
 
     try:
         response = client().post(
@@ -44,6 +46,7 @@ def get_solr_data(bibcodes, start=0, sort='date desc'):
         return response.json()
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
-        logger.error('\nbailing')
+        logger.error('Solr exception. Terminated request.')
         logger.error(e)
+        return None
 

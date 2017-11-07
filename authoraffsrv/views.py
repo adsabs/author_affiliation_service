@@ -19,8 +19,7 @@ import uuid
 
 from adsmutils import setup_logging
 
-import authoraffsrv
-from authoraffsrv.models import get_solr_data
+from authoraffsrv.utils import get_solr_data
 
 
 bp = Blueprint('ads_author_affilation_service', __name__)
@@ -366,7 +365,7 @@ class Formatter:
         return OrderedDict(sorted(the_dict.items()))
 
 
-    def get(self, max_author, cutoff_year):
+    def get(self, max_author=0, cutoff_year=10):
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
             return self.__merge_aff(the_list)
@@ -403,6 +402,21 @@ def return_response(response, status):
     return r
 
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+    return False
+
+
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/authoraff', methods=['POST'])
 def author_aff():
@@ -423,14 +437,18 @@ def author_aff():
     max_author = 0
     if 'maxauthor' in payload:
         maxauthor = ''.join(payload['maxauthor'])
-        if maxauthor.isdigit():
+        if is_number(maxauthor):
             max_author = int(maxauthor)
+            if (max_author < 0):
+                return return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
     # default cutoff is 10 years from today
     cutoff_year = datetime.datetime.now().year - 10
     if 'cutoffyear' in payload:
         cutoffyear = ''.join(payload['cutoffyear'])
-        if cutoffyear.isdigit():
+        if is_number(cutoffyear):
             cutoff_year = int(cutoffyear)
+            if (cutoff_year <= 0):
+                return return_response('error: parameter cutoffyear should be a positive integer', 400)
 
     logger.info('received request with bibcode={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
         bibcodes=bibcodes,
