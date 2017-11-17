@@ -9,9 +9,9 @@ A service for creating author/affiliation spreadsheets
 `curl -H "Content-Type: application/json" -X POST -d <payload> <endpoint>`
 
 
-* where `<endpoint>` is /authoraff,
+* where `<endpoint>` is /search,
 * and `<payload>` should contain a JSON code of a list of comma separated 
 bibcodes, and two optional parameters, maxauthor (num of authors to consider 
 for each article, default is 0, to include all) and cutoffyear 
 (only include articles with publication year included and after 
-this, default is 10 years)
+this, default is past 10 years)

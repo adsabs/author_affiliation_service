@@ -3,24 +3,13 @@
 from flask import current_app
 import requests
 
-from adsmutils import setup_logging
-
 from authoraffsrv.client import client
 
-global logger
-logger = None
-
-
-AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR = 6000
 
 def get_solr_data(bibcodes, start=0, sort='date desc'):
-    global logger
-    if logger == None:
-        logger = setup_logging('ads_author_affilation_service', current_app.config.get('LOG_LEVEL', 'INFO'))
-
     data = 'bibcode\n' + '\n'.join(bibcodes)
 
-    rows = min(AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR, len(bibcodes))
+    rows = min(current_app.config['AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR'], len(bibcodes))
 
     fields = 'author,aff,year'
 
@@ -46,7 +35,7 @@ def get_solr_data(bibcodes, start=0, sort='date desc'):
         return response.json()
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
-        logger.error('Solr exception. Terminated request.')
-        logger.error(e)
+        current_app.logger.error('Solr exception. Terminated request.')
+        current_app.logger.error(e)
         return None
 

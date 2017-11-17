@@ -17,16 +17,10 @@ import json
 import xlwt
 import uuid
 
-from adsmutils import setup_logging
-
 from authoraffsrv.utils import get_solr_data
 
 
 bp = Blueprint('ads_author_affilation_service', __name__)
-
-
-global logger
-logger = None
 
 
 EXPORT_FORMATS = [
@@ -58,15 +52,11 @@ class Export(object):
 
     REGEX_SELECTED_ITEM = re.compile(r'id_(.+?)_aff_(.+?)?\s\(')
 
-    logger = None
-
     def __init__(self, from_form):
         """
         parse data from form and put it in a dict
         :param from_form: data from form
         """
-        self.logger = setup_logging('authoraff_service', current_app.config.get('LOG_LEVEL', 'INFO'))
-
         self.selected_authors = {}
         if len(from_form) > 0:
             items = from_form.split('||')
@@ -213,10 +203,10 @@ class Export(object):
         if status == 200:
             r.headers['content-type'] = content_type
             r.headers['content-disposition'] = content_disposition
-            self.logger.debug('returning results with status code 200')
+            current_app.logger.debug('returning results with status code 200')
         else:
             r.headers['content-type'] = 'text/plain'
-            self.logger.error('{} status code = {}'.format(response, status))
+            current_app.logger.error('{} status code = {}'.format(response, status))
 
         return r
 
@@ -365,44 +355,48 @@ class Formatter:
         return OrderedDict(sorted(the_dict.items()))
 
 
+    def __to_json(self, the_dict):
+        data = []
+        for key, values in the_dict.iteritems():
+            for value in values:
+                name, years = value.split(' (', 1)
+
+                affiliations = {}
+                affiliations['name'] = name.rstrip()
+                affiliations['years'] = years.rstrip(')').split(', ')
+
+                item = {}
+                item['authorName'] = key
+                item['affiliations'] = affiliations
+
+                data.append(item)
+
+        the_json = {}
+        the_json['data'] = data
+        return json.dumps(the_json)
+
+
     def get(self, max_author=0, cutoff_year=10):
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
-            return self.__merge_aff(the_list)
+            return self.__to_json(self.__merge_aff(the_list))
         return None
 
 
-    def show(self, max_author, cutoff_year):
-        authordict = self.get(max_author, cutoff_year)
-        if authordict:
-            return render_template('list.html',
-                                   authordict=authordict,
-                                   exportlist=EXPORT_FORMATS)
-        return render_template('400.html')
-
-
-def setup_global_logging():
-    global logger
-    if (logger == None):
-        logger = setup_logging('authoraff_service', current_app.config.get('LOG_LEVEL', 'INFO'))
-
-
-def return_response(response, status):
-    setup_global_logging()
-
+def __return_response(response, status):
     r = Response(response=response, status=status)
 
     if status == 200:
         r.headers['content-type'] = 'application/json'
-        logger.debug('returning results with status code 200')
+        current_app.logger.debug('returning results with status code 200')
     else:
         r.headers['content-type'] = 'text/plain'
-        logger.error('{} status code = {}'.format(response, status))
+        current_app.logger.error('{} status code = {}'.format(response, status))
 
     return r
 
 
-def is_number(s):
+def __is_number(s):
     try:
         float(s)
         return True
@@ -418,53 +412,54 @@ def is_number(s):
 
 
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
-@bp.route('/authoraff', methods=['POST'])
-def author_aff():
-    setup_global_logging()
-
+@bp.route('/search', methods=['POST'])
+def search():
     try:
         payload = request.get_json(force=True)  # post data in json
     except:
         payload = dict(request.form)  # post data in form encoding
 
     if not payload:
-        return return_response('error: no information received', 400)
+        return __return_response('error: no information received', 400)
     elif 'bibcode' not in payload:
-        return return_response('error: no bibcodes found in payload (parameter name is "bibcode")', 400)
+        return __return_response('error: no bibcodes found in payload (parameter name is "bibcode")', 400)
 
     bibcodes = payload['bibcode']
     # default number of authors is to include all
     max_author = 0
     if 'maxauthor' in payload:
         maxauthor = ''.join(payload['maxauthor'])
-        if is_number(maxauthor):
+        if __is_number(maxauthor):
             max_author = int(maxauthor)
             if (max_author < 0):
-                return return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
+                return __return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
     # default cutoff is 10 years from today
     cutoff_year = datetime.datetime.now().year - 10
     if 'cutoffyear' in payload:
         cutoffyear = ''.join(payload['cutoffyear'])
-        if is_number(cutoffyear):
+        if __is_number(cutoffyear):
             cutoff_year = int(cutoffyear)
             if (cutoff_year <= 0):
-                return return_response('error: parameter cutoffyear should be a positive integer', 400)
+                return __return_response('error: parameter cutoffyear should be a positive integer', 400)
 
-    logger.info('received request with bibcode={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
-        bibcodes=bibcodes,
-        max_author=max_author,
-        cutoff_year=cutoff_year))
+    current_app.logger.info('received request with bibcode={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
+    bibcodes=bibcodes,
+    max_author=max_author,
+    cutoff_year=cutoff_year))
 
     from_solr = get_solr_data(bibcodes=bibcodes)
-    return Formatter(from_solr).show(max_author, cutoff_year)
+    if from_solr is not None:
+        result = Formatter(from_solr).get(max_author, cutoff_year)
+        if result is not None:
+            return __return_response(result, 200)
+    return __return_response('error: no result from solr', 404)
 
 
+# todo: modify after tim created his page
 @bp.route('/export_selection_top', methods=['POST'])
 def export_selection_top():
     jsonData = json.loads(request.form['selected_info_top'])
     return Export(jsonData['selected']).get(jsonData['format'])
-
-
 @bp.route('/export_selection_bottom', methods=['POST'])
 def export_selection_bottom():
     jsonData = json.loads(request.form['selected_info_bottom'])

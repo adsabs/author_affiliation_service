@@ -14,7 +14,6 @@ import unittest
 import authoraffsrv.app as app
 from authoraffsrv.tests.unittests.stubdata import solrdata, formatted, export
 from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS
-from authoraffsrv.utils import get_solr_data
 
 class TestAuthorAffiliation(TestCase):
     def create_app(self):
@@ -23,7 +22,7 @@ class TestAuthorAffiliation(TestCase):
 
     def test_formatted_data(self):
         # format the stubdata using the code
-        formatted_data = Formatter(solrdata.data).get(0, datetime.datetime.now().year - 10)
+        formatted_data = Formatter(solrdata.data).get(0, datetime.datetime.now().year)
         # now compare it with an already formatted data that we know is correct
         assert(formatted_data == formatted.data)
 
@@ -70,7 +69,7 @@ class TestAuthorAffiliation(TestCase):
         """
         Ensure that if no payload is passed in, returns 400
         """
-        r = self.client.post('/authoraff')
+        r = self.client.post('/search')
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
@@ -81,7 +80,7 @@ class TestAuthorAffiliation(TestCase):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        r = self.client.post('/authoraff', data=json.dumps({'missingParamsPayload': ''}))
+        r = self.client.post('/search', data=json.dumps({'missingParamsPayload': ''}))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
@@ -92,7 +91,7 @@ class TestAuthorAffiliation(TestCase):
         Ensure that if payload without all the needed params is passed in, returns 400
         """
         payload = {'bibcode': ["1994AAS...185.4102A","1994AAS...185.4104E"], 'maxauthor':'-1'}
-        r = self.client.post('/authoraff', data=json.dumps(payload))
+        r = self.client.post('/search', data=json.dumps(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
