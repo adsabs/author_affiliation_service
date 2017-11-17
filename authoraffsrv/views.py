@@ -421,28 +421,26 @@ def search():
 
     if not payload:
         return __return_response('error: no information received', 400)
-    elif 'bibcode' not in payload:
-        return __return_response('error: no bibcodes found in payload (parameter name is "bibcode")', 400)
+    elif 'bibcodes' not in payload:
+        return __return_response('error: no bibcodes found in payload (parameter name is "bibcodes")', 400)
 
-    bibcodes = payload['bibcode']
+    bibcodes = payload['bibcodes']
     # default number of authors is to include all
     max_author = 0
     if 'maxauthor' in payload:
-        maxauthor = ''.join(payload['maxauthor'])
-        if __is_number(maxauthor):
-            max_author = int(maxauthor)
-            if (max_author < 0):
-                return __return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
+        maxauthor = payload['maxauthor']
+        if (maxauthor < 0):
+            return __return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
+        max_author = maxauthor
     # default cutoff is 10 years from today
     cutoff_year = datetime.datetime.now().year - 10
     if 'cutoffyear' in payload:
-        cutoffyear = ''.join(payload['cutoffyear'])
-        if __is_number(cutoffyear):
-            cutoff_year = int(cutoffyear)
-            if (cutoff_year <= 0):
-                return __return_response('error: parameter cutoffyear should be a positive integer', 400)
+        cutoffyear = payload['cutoffyear']
+        if (cutoffyear < 1900):
+            return __return_response('error: parameter cutoffyear should be a year >= 1900', 400)
+        cutoff_year = cutoffyear
 
-    current_app.logger.info('received request with bibcode={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
+    current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
     bibcodes=bibcodes,
     max_author=max_author,
     cutoff_year=cutoff_year))

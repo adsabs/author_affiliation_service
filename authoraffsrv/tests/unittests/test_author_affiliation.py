@@ -84,18 +84,31 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, 'error: no bibcodes found in payload (parameter name is "bibcode")')
+        self.assertEqual(response, 'error: no bibcodes found in payload (parameter name is "bibcodes")')
 
     def test_payload_param_error_max_author(self):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        payload = {'bibcode': ["1994AAS...185.4102A","1994AAS...185.4104E"], 'maxauthor':'-1'}
+        payload = {'bibcodes': ["1994AAS...185.4102A","1994AAS...185.4104E"], 'maxauthor':-1}
         r = self.client.post('/search', data=json.dumps(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
         self.assertEqual(response, 'error: parameter maxauthor should be 0 or a positive integer')
+
+
+    def test_payload_param_error_cutoff_year(self):
+        """
+        Ensure that if payload without all the needed params is passed in, returns 400
+        """
+        payload = {'bibcodes': ["1994AAS...185.4102A", "1994AAS...185.4104E"], 'cutoffyear':1800}
+        r = self.client.post('/search', data=json.dumps(payload))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, 'error: parameter cutoffyear should be a year >= 1900')
+
 
 if __name__ == '__main__':
   unittest.main()
