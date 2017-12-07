@@ -2,7 +2,7 @@ data = \
 {
    "responseHeader":{
       "status":0,
-      "QTime":28,
+      "QTime":1,
       "params":{
          "sort":"date desc",
          "fq":"{!bitset}",
@@ -10,7 +10,7 @@ data = \
          "q":"*:*",
          "start":"0",
          "wt":"json",
-         "fl":"author,aff,year"
+         "fl":"author,aff,pubdate"
       }
    },
    "response":{
@@ -33,6 +33,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2017-09-00",
             "author":[
                "Rebull, L. M.",
                "Desai, V.",
@@ -47,8 +48,7 @@ data = \
                "McGlynn, T.",
                "Smale, A.",
                "White, R."
-            ],
-            "year":"2017"
+            ]
          },
          {
             "aff":[
@@ -70,6 +70,7 @@ data = \
                "Infrared Processing and Analysis Ctr. (United States)",
                "Infrared Processing and Analysis Ctr. (United States)"
             ],
+            "pubdate":"2016-07-00",
             "author":[
                "McGlynn, Thomas",
                "Fabbiano, Giuseppina",
@@ -88,8 +89,7 @@ data = \
                "Groom, Steve L.",
                "Desai, Vandana R.",
                "Landry, Walter"
-            ],
-            "year":"2016"
+            ]
          },
          {
             "aff":[
@@ -102,6 +102,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2016-01-00",
             "author":[
                "Accomazzi, Alberto",
                "Kurtz, Michael J.",
@@ -111,8 +112,7 @@ data = \
                "Chyla, Roman",
                "Holachek, Alexandra",
                "Elliott, Jonathan"
-            ],
-            "year":"2016"
+            ]
          },
          {
             "aff":[
@@ -130,6 +130,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2016-00-00",
             "author":[
                "Tananbaum, H.",
                "Kraft, R.",
@@ -144,17 +145,16 @@ data = \
                "Lestition, K.",
                "Moos, W.",
                "Preston, A."
-            ],
-            "year":"2016"
+            ]
          },
          {
             "aff":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA"
             ],
+            "pubdate":"2015-12-00",
             "author":[
                "Accomazzi, Alberto"
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -169,6 +169,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2015-09-00",
             "author":[
                "Chyla, R.",
                "Accomazzi, A.",
@@ -180,8 +181,7 @@ data = \
                "Kurtz, M. J.",
                "Murray, S. S.",
                "Sudilovsky, V."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -189,12 +189,21 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2015-08-00",
             "author":[
                "Rots, Arnold H.",
                "Winkelman, Sherry",
                "Accomazzi, Alberto"
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory"
             ],
-            "year":"2015"
+            "pubdate":"2015-08-00",
+            "author":[
+               "Accomazzi, Alberto"
+            ]
          },
          {
             "aff":[
@@ -209,6 +218,7 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2015-08-00",
             "author":[
                "Accomazzi, Alberto",
                "Kurtz, Michael J.",
@@ -220,42 +230,7 @@ data = \
                "Sudilovsky, Vladimir",
                "Elliott, Jonathan",
                "Murray, Stephen S."
-            ],
-            "year":"2015"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory"
-            ],
-            "author":[
-               "Accomazzi, Alberto"
-            ],
-            "year":"2015"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Henneken, E. A.",
-               "Accomazzi, A.",
-               "Kurtz, M. J.",
-               "Grant, C. S.",
-               "Thompson, D.",
-               "Luker, J.",
-               "Chyla, R.",
-               "Holachek, A.",
-               "Murray, S. S."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -269,6 +244,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA"
             ],
+            "pubdate":"2015-04-00",
             "author":[
                "Grant, C. S.",
                "Thompson, D. M.",
@@ -279,29 +255,32 @@ data = \
                "Kurtz, M. J.",
                "Luker, J.",
                "Murray, S. S."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian Center for Astrophysics, USA",
-               "Harvard-Smithsonian Center for Astrophysics, USA",
-               "SAO/NASA Astrophysics Data System, USA",
-               "Harvard-Smithsonian Center for Astrophysics, USA",
-               "American Astronomical Society, USA",
-               "University of Glasgow, UK",
-               "McGill University, Canada"
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
+            "pubdate":"2015-04-00",
             "author":[
-               "Frey, K.",
-               "Erdmann, C.",
+               "Thompson, D. M.",
+               "Henneken, E. A.",
+               "Grant, C. S.",
+               "Holachek, A.",
                "Accomazzi, A.",
-               "Rubin, L.",
-               "Biemesderfer, C.",
-               "Gray, N.",
-               "Soles, J."
-            ],
-            "year":"2015"
+               "Kurtz, M. J.",
+               "Chyla, R.",
+               "Luker, J.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -316,6 +295,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2015-04-00",
             "author":[
                "Accomazzi, A.",
                "Kurtz, M. J.",
@@ -327,8 +307,28 @@ data = \
                "Holachek, A.",
                "Dave, R.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian Center for Astrophysics, USA",
+               "Harvard-Smithsonian Center for Astrophysics, USA",
+               "SAO/NASA Astrophysics Data System, USA",
+               "Harvard-Smithsonian Center for Astrophysics, USA",
+               "American Astronomical Society, USA",
+               "University of Glasgow, UK",
+               "McGill University, Canada"
             ],
-            "year":"2015"
+            "pubdate":"2015-04-00",
+            "author":[
+               "Frey, K.",
+               "Erdmann, C.",
+               "Accomazzi, A.",
+               "Rubin, L.",
+               "Biemesderfer, C.",
+               "Gray, N.",
+               "Soles, J."
+            ]
          },
          {
             "aff":[
@@ -342,18 +342,18 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2015-04-00",
             "author":[
-               "Thompson, D. M.",
                "Henneken, E. A.",
-               "Grant, C. S.",
-               "Holachek, A.",
                "Accomazzi, A.",
                "Kurtz, M. J.",
-               "Chyla, R.",
+               "Grant, C. S.",
+               "Thompson, D.",
                "Luker, J.",
+               "Chyla, R.",
+               "Holachek, A.",
                "Murray, S. S."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -361,12 +361,12 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2015-04-00",
             "author":[
                "Egret, D.",
                "Laurenceau, A.",
                "Accomazzi, A."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -380,6 +380,7 @@ data = \
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA"
             ],
+            "pubdate":"2015-01-00",
             "author":[
                "Accomazzi, Alberto",
                "Kurtz, Michael J.",
@@ -390,8 +391,7 @@ data = \
                "Holachek, Alexandra",
                "Sudilovsky, Vladimir",
                "Murray, Stephen S."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -402,6 +402,7 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Johns Hopkins University"
             ],
+            "pubdate":"2015-01-00",
             "author":[
                "Henneken, Edwin A.",
                "Accomazzi, Alberto",
@@ -409,8 +410,7 @@ data = \
                "Thompson, Donna",
                "Grant, Carolyn S.",
                "Murray, Stephen S."
-            ],
-            "year":"2015"
+            ]
          },
          {
             "aff":[
@@ -421,6 +421,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2014-05-00",
             "author":[
                "Accomazzi, A.",
                "Gray, N.",
@@ -428,8 +429,7 @@ data = \
                "Biemesderfer, C.",
                "Frey, K.",
                "Soles, J."
-            ],
-            "year":"2014"
+            ]
          },
          {
             "aff":[
@@ -442,6 +442,7 @@ data = \
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA"
             ],
+            "pubdate":"2014-01-00",
             "author":[
                "Accomazzi, Alberto",
                "Kurtz, M. J.",
@@ -451,8 +452,7 @@ data = \
                "Luker, J.",
                "Chyla, R.",
                "Murray, S. S."
-            ],
-            "year":"2014"
+            ]
          },
          {
             "aff":[
@@ -469,6 +469,7 @@ data = \
                "University of Maryland",
                "Middle Tennessee State University"
             ],
+            "pubdate":"2014-01-00",
             "author":[
                "Allen, Alice",
                "Accomazzi, A.",
@@ -482,8 +483,7 @@ data = \
                "Taylor, M. B.",
                "Teuben, P. J.",
                "Wallin, J. F."
-            ],
-            "year":"2014"
+            ]
          },
          {
             "aff":[
@@ -496,6 +496,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2013-10-00",
             "author":[
                "Mann, R. G.",
                "Accomazzi, A.",
@@ -505,8 +506,7 @@ data = \
                "O'Mullane, W.",
                "Wicenec, A.",
                "Wise, M."
-            ],
-            "year":"2013"
+            ]
          },
          {
             "aff":[
@@ -519,6 +519,7 @@ data = \
                "International Centre for Radio Astronomy Research, University of Western Australia, 35 Stirling Highway, Crawley, WA 6009, Australia",
                "ASTRON (Netherlands Institute for Radio Astronomy), P.O. Box 2, 7990 AA Dwingeloo, The Netherlands"
             ],
+            "pubdate":"2013-02-00",
             "author":[
                "Accomazzi, Alberto",
                "Budav\u00e1ri, Tam\u00e1s",
@@ -528,8 +529,28 @@ data = \
                "O'Mullane, William",
                "Wicenec, Andreas",
                "Wise, Michael"
+            ]
+         },
+         {
+            "aff":[
+               "University of Glasgow, United Kingdom",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "McGill University, Canada",
+               "Institute of Physics, United Kingdom",
+               "American Institute of Physics",
+               "American Astronomical Society"
             ],
-            "year":"2013"
+            "pubdate":"2013-01-00",
+            "author":[
+               "Gray, Norman",
+               "Erdmann, C.",
+               "Accomazzi, A.",
+               "Soles, J.",
+               "McCann, G.",
+               "Cassar, M.",
+               "Biemesderfer, C."
+            ]
          },
          {
             "aff":[
@@ -542,6 +563,7 @@ data = \
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA"
             ],
+            "pubdate":"2013-01-00",
             "author":[
                "Accomazzi, Alberto",
                "Kurtz, M. J.",
@@ -551,66 +573,18 @@ data = \
                "Di Milia, G.",
                "Luker, J.",
                "Murray, S. S."
-            ],
-            "year":"2013"
-         },
-         {
-            "aff":[
-               "University of Glasgow, United Kingdom",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "McGill University, Canada",
-               "Institute of Physics, United Kingdom",
-               "American Institute of Physics",
-               "American Astronomical Society"
-            ],
-            "author":[
-               "Gray, Norman",
-               "Erdmann, C.",
-               "Accomazzi, A.",
-               "Soles, J.",
-               "McCann, G.",
-               "Cassar, M.",
-               "Biemesderfer, C."
-            ],
-            "year":"2013"
+            ]
          },
          {
             "aff":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA;",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA;"
             ],
+            "pubdate":"2012-12-00",
             "author":[
                "Henneken, E.",
                "Accomazzi, A."
-            ],
-            "year":"2012"
-         },
-         {
-            "aff":[
-               "-",
-               "-"
-            ],
-            "author":[
-               "Henneken, E. A.",
-               "Accomazzi, A."
-            ],
-            "year":"2012"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Derriere, S.",
-               "Biemesderfer, C.",
-               "Gray, N."
-            ],
-            "year":"2012"
+            ]
          },
          {
             "aff":[
@@ -619,13 +593,39 @@ data = \
                "Smithsonian Astrophysical Observatory (United States)",
                "Smithsonian Astrophysical Observatory (United States)"
             ],
+            "pubdate":"2012-09-00",
             "author":[
                "Accomazzi, Alberto",
                "Henneken, Edwin",
                "Erdmann, Christopher",
                "Rots, Arnold"
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-"
             ],
-            "year":"2012"
+            "pubdate":"2012-09-00",
+            "author":[
+               "Henneken, E. A.",
+               "Accomazzi, A."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2012-09-00",
+            "author":[
+               "Accomazzi, A.",
+               "Derriere, S.",
+               "Biemesderfer, C.",
+               "Gray, N."
+            ]
          },
          {
             "aff":[
@@ -633,12 +633,12 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, USA",
                "Harvard-Smithsonian Center for Astrophysics, USA"
             ],
+            "pubdate":"2012-08-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, Michael J.",
                "Accomazzi, Alberto"
-            ],
-            "year":"2012"
+            ]
          },
          {
             "aff":[
@@ -652,6 +652,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2012-03-00",
             "author":[
                "Henneken, E. A.",
                "Accomazzi, A.",
@@ -662,8 +663,7 @@ data = \
                "Luker, J.",
                "Thiell, B.",
                "Murray, S. S."
-            ],
-            "year":"2012"
+            ]
          },
          {
             "aff":[
@@ -672,13 +672,26 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2011-07-00",
             "author":[
                "Evans, I. N.",
                "Accomazzi, A.",
                "Mink, D. J.",
                "Rots, A. H."
+            ]
+         },
+         {
+            "aff":[
+               "Springer",
+               "Springer",
+               "Smithsonian Astrophysical Observatory"
             ],
-            "year":"2011"
+            "pubdate":"2011-05-00",
+            "author":[
+               "Eichhorn, Guenther",
+               "Blom, H.",
+               "Accomazzi, A."
+            ]
          },
          {
             "aff":[
@@ -692,6 +705,7 @@ data = \
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2011-05-00",
             "author":[
                "Accomazzi, Alberto",
                "Henneken, E.",
@@ -702,21 +716,25 @@ data = \
                "Thompson, D. M.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2011"
+            ]
          },
          {
             "aff":[
-               "Springer",
-               "Springer",
-               "Smithsonian Astrophysical Observatory"
+               "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2011-00-00",
             "author":[
-               "Eichhorn, Guenther",
-               "Blom, H.",
-               "Accomazzi, A."
+               "Accomazzi, Alberto"
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian Center for Astrophysics"
             ],
-            "year":"2011"
+            "pubdate":"2011-00-00",
+            "author":[
+               "Accomazzi, Alberto"
+            ]
          },
          {
             "aff":[
@@ -730,6 +748,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2011-00-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, Michael J.",
@@ -740,26 +759,7 @@ data = \
                "Di Milia, Giovanni",
                "Luker, Jay",
                "Murray, Stephen S."
-            ],
-            "year":"2011"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian Center for Astrophysics"
-            ],
-            "author":[
-               "Accomazzi, Alberto"
-            ],
-            "year":"2011"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian Center for Astrophysics"
-            ],
-            "author":[
-               "Accomazzi, Alberto"
-            ],
-            "year":"2011"
+            ]
          },
          {
             "aff":[
@@ -773,6 +773,7 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2011-01-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, M. J.",
@@ -783,8 +784,7 @@ data = \
                "Di Milia, G.",
                "Luker, J.",
                "Murray, S. S."
-            ],
-            "year":"2011"
+            ]
          },
          {
             "aff":[
@@ -793,13 +793,13 @@ data = \
                "ADS",
                "ADS"
             ],
+            "pubdate":"2011-01-00",
             "author":[
                "Conti, Alberto",
                "Lowe, S.",
                "Accomazzi, A.",
                "Di Milia, G."
-            ],
-            "year":"2011"
+            ]
          },
          {
             "aff":[
@@ -809,23 +809,23 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2010-12-00",
             "author":[
                "Kurtz, M. J.",
                "Accomazzi, A.",
                "Henneken, E.",
                "Di Milia, G.",
                "Grant, C. S."
-            ],
-            "year":"2010"
+            ]
          },
          {
             "aff":[
                "-"
             ],
+            "pubdate":"2010-10-00",
             "author":[
                "Accomazzi, A."
-            ],
-            "year":"2010"
+            ]
          },
          {
             "aff":[
@@ -838,6 +838,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2010-00-00",
             "author":[
                "Henneken, Edwin A.",
                "Eichhorn, Guenther",
@@ -847,8 +848,7 @@ data = \
                "Thompson, Donna",
                "Bohlen, Elizabeth",
                "Murray, Stephen S."
-            ],
-            "year":"2010"
+            ]
          },
          {
             "aff":[
@@ -861,6 +861,7 @@ data = \
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA"
             ],
+            "pubdate":"2009-12-00",
             "author":[
                "Henneken, E. A.",
                "Accomazzi, A.",
@@ -870,8 +871,7 @@ data = \
                "Di Milia, G.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
@@ -885,6 +885,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2009-09-00",
             "author":[
                "Henneken, E. A.",
                "Accomazzi, A.",
@@ -895,8 +896,7 @@ data = \
                "Murray, S. S.",
                "Rosvall, M.",
                "Bergstrom, C."
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
@@ -911,6 +911,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2009-08-00",
             "author":[
                "Osborn, W.",
                "Accomazzi, A.",
@@ -922,8 +923,7 @@ data = \
                "Henden, A.",
                "Templeton, M.",
                "Rees, R."
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
@@ -935,6 +935,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2009-03-00",
             "author":[
                "Henneken, E. A.",
                "Accomazzi, A.",
@@ -943,8 +944,7 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
@@ -956,6 +956,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2009-00-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, Michael J.",
@@ -964,167 +965,7 @@ data = \
                "Thompson, Donna",
                "Bohlen, Elizabeth",
                "Murray, Stephen S."
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics",
-               "Harvard Smithsonian Center for Astrophysics"
-            ],
-            "author":[
-               "Accomazzi, Alberto",
-               "Kurtz, M. J.",
-               "Grant, C. S.",
-               "Henneken, E.",
-               "Thompson, D.",
-               "Bohlen, E.",
-               "Murray, S. S."
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory",
-               "University of Washington, Department of Biology",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "University of Washington, Department of Biology",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory"
-            ],
-            "author":[
-               "Henneken, Edwin A.",
-               "Rosvall, M.",
-               "Accomazzi, A.",
-               "Kurtz, M. J.",
-               "Bergstrom, C.",
-               "Grant, C. S.",
-               "Thompson, D.",
-               "Bohlen, E.",
-               "Murray, S. S."
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Murray, S. S.",
-               "Kurtz, M. J."
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "White, Richard L.",
-               "Accomazzi, Alberto",
-               "Berriman, G. Bruce",
-               "Fabbiano, Giuseppina",
-               "Madore, Barry F.",
-               "Mazzarella, Joseph M.",
-               "Rots, Arnold",
-               "Smale, Alan P.",
-               "Storrie-Lombardi, Lisa",
-               "Winkelman, Sherry"
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Osborn, Wayne",
-               "Accomazzi, Alberto",
-               "Castelaz, Michael",
-               "Cline, J. Don",
-               "Cudworth, Kyle",
-               "Griffin, R. Elizabeth",
-               "Grindlay, Jonathan",
-               "Rees, Richard",
-               "Henden, Arne",
-               "Templeton, Matthew"
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Kurtz, Michael",
-               "Accomazzi, Alberto",
-               "Murray, Stephen S."
-            ],
-            "year":"2009"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Loredo, Thomas J.",
-               "Accomazzi, Alberto",
-               "Bloom, Joshua",
-               "Borne, Kirk",
-               "Brunner, Robert",
-               "Burke, Douglas",
-               "Butler, Nathaniel",
-               "Chernoff, David F.",
-               "Connolly, Brian",
-               "Connolly, Andrew",
-               "Cutler, Curt",
-               "Desai, Shantanu",
-               "Djorgovski, George"
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
@@ -1220,6 +1061,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2009-00-00",
             "author":[
                "Borne, Kirk",
                "Accomazzi, Alberto",
@@ -1312,27 +1154,32 @@ data = \
                "Willett, Rebecca",
                "Wolpert, Robert",
                "Woodroofe, Michael"
-            ],
-            "year":"2009"
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
-               "-"
+               "Smithsonian Astrophysical Observatory",
+               "University of Washington, Department of Biology",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "University of Washington, Department of Biology",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2009-01-00",
             "author":[
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn S.",
-               "Kurtz, Michael J.",
-               "Thompson, Donna M.",
-               "Murray, Stephen S."
-            ],
-            "year":"2007"
+               "Henneken, Edwin A.",
+               "Rosvall, M.",
+               "Accomazzi, A.",
+               "Kurtz, M. J.",
+               "Bergstrom, C.",
+               "Grant, C. S.",
+               "Thompson, D.",
+               "Bohlen, E.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -1344,16 +1191,129 @@ data = \
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2009-01-00",
             "author":[
                "Accomazzi, Alberto",
+               "Kurtz, M. J.",
+               "Grant, C. S.",
                "Henneken, E.",
                "Thompson, D.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Bohlen, E. H.",
+               "Bohlen, E.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2007"
+            "pubdate":"2009-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Murray, S. S.",
+               "Kurtz, M. J."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2009-00-00",
+            "author":[
+               "White, Richard L.",
+               "Accomazzi, Alberto",
+               "Berriman, G. Bruce",
+               "Fabbiano, Giuseppina",
+               "Madore, Barry F.",
+               "Mazzarella, Joseph M.",
+               "Rots, Arnold",
+               "Smale, Alan P.",
+               "Storrie-Lombardi, Lisa",
+               "Winkelman, Sherry"
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2009-00-00",
+            "author":[
+               "Kurtz, Michael",
+               "Accomazzi, Alberto",
+               "Murray, Stephen S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2009-00-00",
+            "author":[
+               "Loredo, Thomas J.",
+               "Accomazzi, Alberto",
+               "Bloom, Joshua",
+               "Borne, Kirk",
+               "Brunner, Robert",
+               "Burke, Douglas",
+               "Butler, Nathaniel",
+               "Chernoff, David F.",
+               "Connolly, Brian",
+               "Connolly, Andrew",
+               "Cutler, Curt",
+               "Desai, Shantanu",
+               "Djorgovski, George"
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2009-00-00",
+            "author":[
+               "Osborn, Wayne",
+               "Accomazzi, Alberto",
+               "Castelaz, Michael",
+               "Cline, J. Don",
+               "Cudworth, Kyle",
+               "Griffin, R. Elizabeth",
+               "Grindlay, Jonathan",
+               "Rees, Richard",
+               "Henden, Arne",
+               "Templeton, Matthew"
+            ]
          },
          {
             "aff":[
@@ -1367,6 +1327,7 @@ data = \
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA"
             ],
+            "pubdate":"2007-12-00",
             "author":[
                "Kurtz, Michael J.",
                "Henneken, E. A.",
@@ -1377,8 +1338,7 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1389,6 +1349,7 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2007-12-00",
             "author":[
                "Grant, Carolyn S.",
                "Accomazzi, A.",
@@ -1396,8 +1357,68 @@ data = \
                "Thompson, D.",
                "Kurtz, M. J.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics",
+               "Harvard Smithsonian Center for Astrophysics"
             ],
-            "year":"2007"
+            "pubdate":"2007-12-00",
+            "author":[
+               "Accomazzi, Alberto",
+               "Henneken, E.",
+               "Thompson, D.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Bohlen, E. H.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
+               "-"
+            ],
+            "pubdate":"2007-12-00",
+            "author":[
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn S.",
+               "Kurtz, Michael J.",
+               "Thompson, Donna M.",
+               "Murray, Stephen S."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory",
+               "Smithsonian Astrophysical Observatory"
+            ],
+            "pubdate":"2007-10-00",
+            "author":[
+               "Henneken, Edwin A.",
+               "Kurtz, M. J.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Thompson, D.",
+               "Bohlen, E.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -1405,12 +1426,12 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2007-10-00",
             "author":[
                "Accomazzi, A.",
                "Eichhorn, G.",
                "Rots, A."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1424,6 +1445,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2007-10-00",
             "author":[
                "Accomazzi, A.",
                "Eichhorn, G.",
@@ -1434,31 +1456,7 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Henneken, E.",
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Thompson, D.",
-               "Bohlen, E.",
-               "Murray, S. S."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1470,6 +1468,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2007-10-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -1478,52 +1477,7 @@ data = \
                "Thompson, D. M.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory",
-               "Smithsonian Astrophysical Observatory"
-            ],
-            "author":[
-               "Henneken, Edwin A.",
-               "Kurtz, M. J.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Thompson, D.",
-               "Bohlen, E.",
-               "Murray, S. S."
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C.",
-               "Henneken, E.",
-               "Thompson, D.",
-               "Bohlen, E.",
-               "Murray, S. S."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1535,27 +1489,7 @@ data = \
                "-",
                "-"
             ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Henneken, E. A.",
-               "Thompson, D. M.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
+            "pubdate":"2007-10-00",
             "author":[
                "Grant, C. S.",
                "Accomazzi, A.",
@@ -1564,8 +1498,7 @@ data = \
                "Eichhorn, G.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1578,6 +1511,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2007-10-00",
             "author":[
                "Thompson, D. M.",
                "Accomazzi, A.",
@@ -1587,8 +1521,74 @@ data = \
                "Kurtz, M. J.",
                "Bohlen, E.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2007"
+            "pubdate":"2007-10-00",
+            "author":[
+               "Henneken, E.",
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Thompson, D.",
+               "Bohlen, E.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2007-10-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Henneken, E. A.",
+               "Thompson, D. M.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2007-10-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C.",
+               "Henneken, E.",
+               "Thompson, D.",
+               "Bohlen, E.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -1600,6 +1600,7 @@ data = \
                "Harvard Smithsonian Center for Astrophysics, 60 Garden Street, MS-67, Cambridge, MA02138, USA",
                "Harvard Smithsonian Center for Astrophysics, 60 Garden Street, MS-67, Cambridge, MA02138, USA"
             ],
+            "pubdate":"2007-08-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
@@ -1608,8 +1609,7 @@ data = \
                "Kurtz, Michael J.",
                "Thompson, Donna M.",
                "Murray, Stephen S."
-            ],
-            "year":"2007"
+            ]
          },
          {
             "aff":[
@@ -1622,29 +1622,7 @@ data = \
                "-",
                "-"
             ],
-            "author":[
-               "Kurtz, Michael",
-               "Eichhorn, Guenther",
-               "Henneken, Edwin",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn",
-               "Thompson, Donna",
-               "Bohlen, Elizabeth",
-               "Murray, Stephen"
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
+            "pubdate":"2007-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -1654,8 +1632,30 @@ data = \
                "Bohlen, E. H.",
                "Thompson, D. M.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2007"
+            "pubdate":"2007-03-00",
+            "author":[
+               "Kurtz, Michael",
+               "Eichhorn, Guenther",
+               "Henneken, Edwin",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn",
+               "Thompson, Donna",
+               "Bohlen, Elizabeth",
+               "Murray, Stephen"
+            ]
          },
          {
             "aff":[
@@ -1670,6 +1670,7 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"2007-01-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, Michael J.",
@@ -1681,29 +1682,7 @@ data = \
                "Murray, Stephen S.",
                "Ginsparg, Paul",
                "Warner, Simeon"
-            ],
-            "year":"2007"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Eichhorn, Guenther",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Henneken, E.",
-               "Kurtz, M. J.",
-               "Thompson, D. M.",
-               "Murray, S. S."
-            ],
-            "year":"2006"
+            ]
          },
          {
             "aff":[
@@ -1716,6 +1695,7 @@ data = \
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA"
             ],
+            "pubdate":"2006-12-00",
             "author":[
                "Kurtz, Michael J.",
                "Eichhorn, G.",
@@ -1725,8 +1705,28 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
             ],
-            "year":"2006"
+            "pubdate":"2006-12-00",
+            "author":[
+               "Eichhorn, Guenther",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Henneken, E.",
+               "Kurtz, M. J.",
+               "Thompson, D. M.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -1739,6 +1739,7 @@ data = \
                "Smithsonian Astrophysical Obs.",
                "Smithsonian Astrophysical Obs."
             ],
+            "pubdate":"2006-12-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, M. J.",
@@ -1748,8 +1749,7 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2006"
+            ]
          },
          {
             "aff":[
@@ -1761,6 +1761,7 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"2006-09-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, A.",
@@ -1769,8 +1770,7 @@ data = \
                "Kurtz, M. J.",
                "Thompson, D. M.",
                "Murray, S. S."
-            ],
-            "year":"2006"
+            ]
          },
          {
             "aff":[
@@ -1782,6 +1782,7 @@ data = \
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138"
             ],
+            "pubdate":"2006-08-00",
             "author":[
                "Henneken, Edwin A.",
                "Kurtz, Michael J.",
@@ -1790,8 +1791,26 @@ data = \
                "Grant, Carolyn",
                "Thompson, Donna",
                "Murray, Stephen S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2006"
+            "pubdate":"2006-07-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C.",
+               "Henneken, E.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -1803,6 +1822,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2006-07-00",
             "author":[
                "Accomazzi, A.",
                "Kurtz, M. J.",
@@ -1811,27 +1831,7 @@ data = \
                "Grant, C. S.",
                "Demleitner, M.",
                "Murray, S. S."
-            ],
-            "year":"2006"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C.",
-               "Henneken, E.",
-               "Murray, S. S."
-            ],
-            "year":"2006"
+            ]
          },
          {
             "aff":[
@@ -1844,6 +1844,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2006-03-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
@@ -1853,8 +1854,7 @@ data = \
                "Bohlen, E. H.",
                "Thompson, D. M.",
                "Murray, S. S."
-            ],
-            "year":"2006"
+            ]
          },
          {
             "aff":[
@@ -1866,6 +1866,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2005-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -1874,8 +1875,7 @@ data = \
                "Kurtz, M. J.",
                "Thompson, D. M.",
                "Murray, S. S."
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -1888,6 +1888,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2005-12-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
@@ -1897,8 +1898,7 @@ data = \
                "Thompson, D.",
                "Bohlen, E.",
                "Murray, S. S."
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -1910,6 +1910,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2005-12-00",
             "author":[
                "Kurtz, M. J.",
                "Henneken, E.",
@@ -1918,8 +1919,7 @@ data = \
                "Grant, C. S.",
                "Thompson, D.",
                "Murray, S. S."
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -1931,6 +1931,7 @@ data = \
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"2005-08-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -1939,8 +1940,28 @@ data = \
                "Kurtz, M. J.",
                "Thompson, D. M.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2005"
+            "pubdate":"2005-03-00",
+            "author":[
+               "Kurtz, Michael J.",
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn",
+               "Demleitner, Markus",
+               "Henneken, Edwin",
+               "Murray, Stephen S."
+            ]
          },
          {
             "aff":[
@@ -1950,14 +1971,14 @@ data = \
                "SPACE TELESCOPE EUROPEAN COORDINATING FACILITY, Garching bei M\u00fcnchen, Germany",
                "HARVARD-SMITHSONIAN CENTER FOR ASTROPHYSICS, CAMBRIDGE, MA, USA"
             ],
+            "pubdate":"2005-03-00",
             "author":[
                "Delmotte, Nausicaa",
                "Treumann, Angelika",
                "Grothkopf, Uta",
                "Micol, Alberto",
                "Accomazzi, Alberto"
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -1969,27 +1990,7 @@ data = \
                "-",
                "-"
             ],
-            "author":[
-               "Kurtz, Michael J.",
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn",
-               "Demleitner, Markus",
-               "Henneken, Edwin",
-               "Murray, Stephen S."
-            ],
-            "year":"2005"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
+            "pubdate":"2005-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -1998,27 +1999,7 @@ data = \
                "Kurtz, M. J.",
                "Thompson, D. M.",
                "Murray, S. S."
-            ],
-            "year":"2005"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
-            ],
-            "author":[
-               "Kurtz, Michael J.",
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn S.",
-               "Demleitner, Markus",
-               "Murray, Stephen S."
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -2031,6 +2012,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
             ],
+            "pubdate":"2005-00-00",
             "author":[
                "Kurtz, Michael J.",
                "Eichhorn, Guenther",
@@ -2040,8 +2022,26 @@ data = \
                "Murray, Stephen S.",
                "Martimbeau, Nathalie",
                "Elwell, Barbara"
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
             ],
-            "year":"2005"
+            "pubdate":"2005-00-00",
+            "author":[
+               "Kurtz, Michael J.",
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn S.",
+               "Demleitner, Markus",
+               "Murray, Stephen S."
+            ]
          },
          {
             "aff":[
@@ -2052,6 +2052,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2005-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
@@ -2059,8 +2060,7 @@ data = \
                "Kurtz, Michael J.",
                "Rey Bacaico, Vicente",
                "Murray, Stephen S."
-            ],
-            "year":"2005"
+            ]
          },
          {
             "aff":[
@@ -2071,6 +2071,7 @@ data = \
                "CfA",
                "CfA"
             ],
+            "pubdate":"2004-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, Alberto",
@@ -2078,8 +2079,7 @@ data = \
                "Henneken, Edwin",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2004"
+            ]
          },
          {
             "aff":[
@@ -2090,6 +2090,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2004-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2097,40 +2098,18 @@ data = \
                "Henneken, E.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2004"
+            ]
          },
          {
             "aff":[
                "-",
                "-"
             ],
+            "pubdate":"2004-07-00",
             "author":[
                "Accomazzi, A.",
                "Eichhorn, G."
-            ],
-            "year":"2004"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Henneken, E. A.",
-               "Thompson, D. M.",
-               "Murray, S. S."
-            ],
-            "year":"2004"
+            ]
          },
          {
             "aff":[
@@ -2143,6 +2122,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2004-03-00",
             "author":[
                "Thompson, D. M.",
                "Eichhorn, G.",
@@ -2152,8 +2132,47 @@ data = \
                "Henneken, E.",
                "Kurtz, M.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"2004"
+            "pubdate":"2004-03-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Henneken, E. A.",
+               "Thompson, D. M.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Univ Heidelbergm Bergheimer Str 58, Heidelberg, Germany",
+               "Harvard-Smithsonian Center for Astrophysics, 60 Garden St., Cambridge, MA, USA",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"2004-00-00",
+            "author":[
+               "Demleitner, M.",
+               "Kurtz, M.",
+               "Accomazzi, A.",
+               "Eichhorn, G\u00fcnther",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -2168,6 +2187,7 @@ data = \
                "CXC SAO, Cambridge, MA 02138",
                "NASA ADC, Code 630, Greenbelt, MD 20771"
             ],
+            "pubdate":"2004-00-00",
             "author":[
                "McGlynn, Thomas",
                "Accomazzi, Alberto",
@@ -2179,8 +2199,7 @@ data = \
                "Mazzerella, Joseph",
                "Rots, Arnold",
                "Thomas, Brian"
-            ],
-            "year":"2004"
+            ]
          },
          {
             "aff":[
@@ -2190,94 +2209,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2004-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2004"
-         },
-         {
-            "aff":[
-               "Univ Heidelbergm Bergheimer Str 58, Heidelberg, Germany",
-               "Harvard-Smithsonian Center for Astrophysics, 60 Garden St., Cambridge, MA, USA",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Demleitner, M.",
-               "Kurtz, M.",
-               "Accomazzi, A.",
-               "Eichhorn, G\u00fcnther",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"2004"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Henneken, E. A.",
-               "Thompson, D. M.",
-               "Bohlen, E. H.",
-               "Murray, S. S."
-            ],
-            "year":"2003"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA."
-            ],
-            "author":[
-               "Henneken, E. A.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"2003"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA.",
-               "Harvard-Smithsonian CfA."
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Henneken, E. A.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2288,6 +2227,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, MS-31, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, MS-31, 60 Garden Street, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2003-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2295,8 +2235,68 @@ data = \
                "Henneken, E.",
                "Kurtz, M. J.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA."
             ],
-            "year":"2003"
+            "pubdate":"2003-12-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Henneken, E. A.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA"
+            ],
+            "pubdate":"2003-12-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Henneken, E. A.",
+               "Thompson, D. M.",
+               "Bohlen, E. H.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA.",
+               "Harvard-Smithsonian CfA."
+            ],
+            "pubdate":"2003-12-00",
+            "author":[
+               "Henneken, E. A.",
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -2306,14 +2306,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2003-10-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2324,6 +2324,7 @@ data = \
                "CfA, Cambridge, MA, USA",
                "CfA, Cambridge, MA, USA"
             ],
+            "pubdate":"2003-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2331,8 +2332,7 @@ data = \
                "Henneken, E.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2343,6 +2343,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2003-04-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2350,8 +2351,7 @@ data = \
                "Henneken, E. A.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2362,6 +2362,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2003-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2369,8 +2370,7 @@ data = \
                "Kurtz, M. J.",
                "Henneken, E. A.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2380,14 +2380,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2003-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2398,6 +2398,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA"
             ],
+            "pubdate":"2003-03-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
@@ -2405,8 +2406,7 @@ data = \
                "Henneken, Edwin",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2416,14 +2416,31 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2003-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
+               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
             ],
-            "year":"2003"
+            "pubdate":"2003-00-00",
+            "author":[
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn S.",
+               "Kurtz, Michael J.",
+               "Murray, Stephen S."
+            ]
          },
          {
             "aff":[
@@ -2435,6 +2452,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
             ],
+            "pubdate":"2003-00-00",
             "author":[
                "Kurtz, Michael J.",
                "Eichhorn, Guenther",
@@ -2443,44 +2461,7 @@ data = \
                "Thompson, Donna M.",
                "Bohlen, Elizabeth H.",
                "Murray, Stephen S."
-            ],
-            "year":"2003"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
-               "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA"
-            ],
-            "author":[
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn S.",
-               "Kurtz, Michael J.",
-               "Murray, Stephen S."
-            ],
-            "year":"2003"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics",
-               "Harvard-Smithsonian Center for Astrophysics"
-            ],
-            "author":[
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn S.",
-               "Henneken, Edwin A.",
-               "Kurtz, Michael J.",
-               "Murray, Stephen S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
@@ -2490,48 +2471,67 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2003-00-00",
             "author":[
                "Accomazzi, A.",
                "Eichhorn, G.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2003"
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA"
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics",
+               "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2003-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
+               "Henneken, Edwin A.",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
-               "Harvard-Smithsonian Ctr. for Astrophysics, USA"
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"2002-12-00",
             "author":[
-               "Kurtz, Michael J.",
-               "Eichhorn, Guenther",
-               "Accomazzi, Alberto",
-               "Grant, Carolyn S.",
-               "Murray, Stephen S."
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA"
             ],
-            "year":"2002"
+            "pubdate":"2002-12-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -2542,6 +2542,7 @@ data = \
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"2002-12-00",
             "author":[
                "Thompson, D. M.",
                "Eichhorn, G.",
@@ -2549,42 +2550,41 @@ data = \
                "Accomazzi, A.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA"
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA"
             ],
+            "pubdate":"2002-12-00",
             "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"2002"
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn S.",
+               "Kurtz, Michael J.",
+               "Murray, Stephen S."
+            ]
          },
          {
             "aff":[
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA"
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA",
+               "Harvard-Smithsonian Ctr. for Astrophysics, USA"
             ],
+            "pubdate":"2002-12-00",
             "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"2002"
+               "Kurtz, Michael J.",
+               "Eichhorn, Guenther",
+               "Accomazzi, Alberto",
+               "Grant, Carolyn S.",
+               "Murray, Stephen S."
+            ]
          },
          {
             "aff":[
@@ -2594,14 +2594,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138"
             ],
+            "pubdate":"2002-10-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2611,14 +2611,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2002-09-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2629,6 +2629,7 @@ data = \
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"2002-06-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2636,8 +2637,7 @@ data = \
                "Kurtz, M. J.",
                "Rey Bakaikoa, V.",
                "Murray, S. S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2648,6 +2648,7 @@ data = \
                "Harvard-Smithsonian CfA, MS-83 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian CfA, MS-83 60 Garden Street, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2002-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2655,8 +2656,7 @@ data = \
                "Kurtz, M. J.",
                "Rey Bacaicoa, V.",
                "Murray, S. S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2667,6 +2667,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA"
             ],
+            "pubdate":"2002-04-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
@@ -2674,8 +2675,7 @@ data = \
                "Kurtz, Michael J.",
                "Reybacaicoa, Vicente",
                "Murray, Stephen S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2686,6 +2686,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2002-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2693,8 +2694,7 @@ data = \
                "Kurtz, M. J.",
                "Rey Bacaicoa, V.",
                "Murray, S. S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2704,14 +2704,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138"
             ],
+            "pubdate":"2002-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2002"
+            ]
          },
          {
             "aff":[
@@ -2720,51 +2720,13 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2002-00-00",
             "author":[
                "Rey-Bakaikoa, V.",
                "Accomazzi, A.",
                "Eichhorn, G.",
                "Grant, C. S."
-            ],
-            "year":"2002"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Rey Bakaikoa, V.",
-               "Murray, S. S."
-            ],
-            "year":"2001"
-         },
-         {
-            "aff":[
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA",
-               "Harvard-Smithsonian CfA"
-            ],
-            "author":[
-               "Rey Bakaikoa, V.",
-               "Grant, C. S.",
-               "Accomazzi, A.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"2001"
+            ]
          },
          {
             "aff":[
@@ -2775,6 +2737,7 @@ data = \
                "CfA",
                "CfA"
             ],
+            "pubdate":"2001-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2782,8 +2745,45 @@ data = \
                "Kurtz, M. J.",
                "Rey Bakaikoa, V.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA"
             ],
-            "year":"2001"
+            "pubdate":"2001-12-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Rey Bakaikoa, V.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA",
+               "Harvard-Smithsonian CfA"
+            ],
+            "pubdate":"2001-12-00",
+            "author":[
+               "Rey Bakaikoa, V.",
+               "Grant, C. S.",
+               "Accomazzi, A.",
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -2794,6 +2794,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2001-11-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2801,8 +2802,7 @@ data = \
                "Kurtz, M. J.",
                "ReyBacaicoa, V.",
                "Murray, S. S."
-            ],
-            "year":"2001"
+            ]
          },
          {
             "aff":[
@@ -2812,14 +2812,14 @@ data = \
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"2001-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2001"
+            ]
          },
          {
             "aff":[
@@ -2829,14 +2829,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2001-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2001"
+            ]
          },
          {
             "aff":[
@@ -2847,6 +2847,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2001-00-00",
             "author":[
                "Demleitner, M.",
                "Accomazzi, A.",
@@ -2854,8 +2855,7 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2001"
+            ]
          },
          {
             "aff":[
@@ -2866,6 +2866,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics"
             ],
+            "pubdate":"2000-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2873,8 +2874,7 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2885,6 +2885,7 @@ data = \
                "CfA",
                "CfA"
             ],
+            "pubdate":"2000-10-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2892,8 +2893,7 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2904,6 +2904,7 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"2000-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -2911,8 +2912,7 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2922,14 +2922,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2000-04-00",
             "author":[
                "Eichhorn, Guenther",
                "Kurtz, Michael J.",
                "Accomazzi, Alberto",
                "Grant, Carolyn S.",
                "Murray, Stephen S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2939,14 +2939,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2000-04-00",
             "author":[
                "Accomazzi, Alberto",
                "Eichhorn, Guenther",
                "Kurtz, Michael J.",
                "Grant, Carolyn S.",
                "Murray, Stephen S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2956,14 +2956,14 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2000-04-00",
             "author":[
                "Grant, Carolyn S.",
                "Accomazzi, Alberto",
                "Eichhorn, Guenther",
                "Kurtz, Michael J.",
                "Murray, Stephen S."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2974,6 +2974,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"2000-04-00",
             "author":[
                "Kurtz, Michael J.",
                "Eichhorn, Guenther",
@@ -2981,8 +2982,7 @@ data = \
                "Grant, Carolyn S.",
                "Murray, Stephen S.",
                "Watson, Joyce M."
-            ],
-            "year":"2000"
+            ]
          },
          {
             "aff":[
@@ -2993,6 +2993,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"2000-00-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -3000,27 +3001,7 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"2000"
-         },
-         {
-            "aff":[
-               "CfA",
-               "CfA",
-               "CfA",
-               "CfA",
-               "CfA",
-               "CfA"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Demleitner, M.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1999"
+            ]
          },
          {
             "aff":[
@@ -3031,6 +3012,7 @@ data = \
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA"
             ],
+            "pubdate":"1999-12-00",
             "author":[
                "Demleitner, M.",
                "Accomazzi, A.",
@@ -3038,8 +3020,26 @@ data = \
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "CfA",
+               "CfA",
+               "CfA",
+               "CfA",
+               "CfA",
+               "CfA"
             ],
-            "year":"1999"
+            "pubdate":"1999-12-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Demleitner, M.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -3050,6 +3050,7 @@ data = \
                "Harvard-Smithsonian Center for Astrophysics Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics Cambridge, MA 02138, USA"
             ],
+            "pubdate":"1999-11-00",
             "author":[
                "Kurtz, Michael J.",
                "Eichhorn, Guenther",
@@ -3057,63 +3058,7 @@ data = \
                "Grant, Carolyn S.",
                "Demleitner, Markus",
                "Murray, Stephen S."
-            ],
-            "year":"1999"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Demleitner, M.",
-               "Eichhorn, G.",
-               "Grant, C. S.",
-               "Accomazzi, A.",
-               "Murray, S. S."
-            ],
-            "year":"1999"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Demleitner, M.",
-               "Eichhorn, G.",
-               "Grant, C. S.",
-               "Accomazzi, A.",
-               "Murray, S. S.",
-               "Kurtz, M. J."
-            ],
-            "year":"1999"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1999"
+            ]
          },
          {
             "aff":[
@@ -3123,14 +3068,69 @@ data = \
                "ISG Technologies, Inc., USA",
                "ISG Technologies, Inc., Canada"
             ],
+            "pubdate":"1999-05-00",
             "author":[
                "Gatti, Claudio",
                "Accomazzi, Vittorio",
                "Chann, Robert",
                "Stapleton, Sandra J.",
                "Done, Egan"
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
             ],
-            "year":"1999"
+            "pubdate":"1999-05-00",
+            "author":[
+               "Demleitner, M.",
+               "Eichhorn, G.",
+               "Grant, C. S.",
+               "Accomazzi, A.",
+               "Murray, S. S.",
+               "Kurtz, M. J."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
+            ],
+            "pubdate":"1999-05-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Demleitner, M.",
+               "Eichhorn, G.",
+               "Grant, C. S.",
+               "Accomazzi, A.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
+            ],
+            "pubdate":"1999-05-00",
+            "author":[
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -3140,14 +3140,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1999-00-00",
             "author":[
                "Accomazzi, Alberto",
                "Eichhorn, Guenther",
                "Kurtz, Michael J.",
                "Grant, Carolyn S.",
                "Murray, Stephen S."
-            ],
-            "year":"1999"
+            ]
          },
          {
             "aff":[
@@ -3157,14 +3157,14 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1998-12-00",
             "author":[
-               "Eichhorn, G.",
                "Kurtz, M. J.",
+               "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3174,14 +3174,14 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1998-12-00",
             "author":[
-               "Kurtz, M. J.",
                "Eichhorn, G.",
+               "Kurtz, M. J.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3190,13 +3190,13 @@ data = \
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
             ],
+            "pubdate":"1998-09-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
                "Accomazzi, A.",
                "Grant, C. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3206,14 +3206,14 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1998-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3223,14 +3223,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1998-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3240,65 +3240,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1998-00-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1998"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1998"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1998"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1998"
+            ]
          },
          {
             "aff":[
@@ -3307,13 +3256,64 @@ data = \
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"1998-00-00",
             "author":[
                "Eichhorn, Guenther",
                "Accomazzi, Alberto",
                "Kurtz, Michael J.",
                "Grant, Carolyn S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"1998"
+            "pubdate":"1998-00-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"1998-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"1998-00-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -3322,13 +3322,13 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1997-12-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
                "Accomazzi, A.",
                "Grant, C. S."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3338,14 +3338,14 @@ data = \
                "SAO",
                "-"
             ],
+            "pubdate":"1997-12-00",
             "author":[
                "Kurtz, M. J.",
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3354,13 +3354,13 @@ data = \
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA"
             ],
+            "pubdate":"1997-09-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3373,6 +3373,7 @@ data = \
                "JPL",
                "JPL"
             ],
+            "pubdate":"1997-07-00",
             "author":[
                "Eichhorn, G.",
                "Kurtz, M. J.",
@@ -3382,8 +3383,7 @@ data = \
                "Hughes, J. S.",
                "Mortellaro, J.",
                "McMahon, S. K."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3396,6 +3396,7 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1997-07-00",
             "author":[
                "Kurtz, M. J.",
                "Eichhorn, G.",
@@ -3405,8 +3406,7 @@ data = \
                "Marsden, B.",
                "Williams, G.",
                "Green, D."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3416,14 +3416,14 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1997-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Kurtz, M. J.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3433,14 +3433,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1997-03-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1997"
+            ]
          },
          {
             "aff":[
@@ -3450,31 +3450,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1997-00-00",
             "author":[
                "Accomazzi, A.",
                "Eichhorn, G.",
                "Kurtz, M. J.",
                "Grant, C. S.",
                "Murray, S. S."
-            ],
-            "year":"1997"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "-"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1996"
+            ]
          },
          {
             "aff":[
@@ -3488,6 +3471,7 @@ data = \
                "CDS",
                "-"
             ],
+            "pubdate":"1996-12-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
@@ -3498,8 +3482,24 @@ data = \
                "Genova, F.",
                "Lesteven, S.",
                "Wenger, M."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "-"
             ],
-            "year":"1996"
+            "pubdate":"1996-12-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -3509,31 +3509,31 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1996-05-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1996"
+            ]
          },
          {
             "aff":[
-               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
-               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
-               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
-               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
-               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA"
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
+            "pubdate":"1996-00-00",
             "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Murray, S. S.",
+               "Accomazzi, A.",
                "Grant, C. S.",
-               "Accomazzi, A."
-            ],
-            "year":"1996"
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
@@ -3543,150 +3543,14 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1996-00-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1996"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1996"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Kurtz, M. J.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Eichhorn, G.",
-               "Murray, S. S.",
-               "Kurtz, M. J.",
-               "Accomazzi, A.",
-               "Grant, C. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Grant, C. S.",
-               "Accomazzi, A.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Grant, C. S.",
-               "Eichhorn, G.",
-               "Kurtz, M. J.",
-               "Murray, S. S."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Murray, S. S.",
-               "Eichhorn, G.",
-               "Accomazzi, A.",
-               "Stern Grant, C.",
-               "Kurtz, M. J."
-            ],
-            "year":"1995"
+            ]
          },
          {
             "aff":[
@@ -3696,44 +3560,82 @@ data = \
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA"
             ],
+            "pubdate":"1996-00-00",
+            "author":[
+               "Kurtz, M. J.",
+               "Eichhorn, G.",
+               "Murray, S. S.",
+               "Grant, C. S.",
+               "Accomazzi, A."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"1995-06-00",
             "author":[
                "Eichhorn, G.",
                "Accomazzi, A.",
                "Grant, C. S.",
                "Kurtz, M. J.",
                "Murray, S. S."
-            ],
-            "year":"1995"
+            ]
          },
          {
             "aff":[
-               "Smithsonian Astrophysical Observatory, Cambridge, MA, U.S.A.",
-               "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany. (Affiliated to Astrophysics Division, Space Science Department, European Space Agency.)",
-               "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany"
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
             ],
+            "pubdate":"1995-05-00",
             "author":[
-               "Accomazzi, A.",
-               "Murtagh, F.",
-               "Rasmussen, B. F."
-            ],
-            "year":"1995"
-         },
-         {
-            "aff":[
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
-               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A."
-            ],
-            "author":[
-               "Accomazzi, A.",
+               "Kurtz, M. J.",
                "Eichhorn, G.",
+               "Accomazzi, A.",
                "Grant, C. S.",
-               "Murray, S. S.",
-               "Kurtz, M. J."
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
             ],
-            "year":"1995"
+            "pubdate":"1995-05-00",
+            "author":[
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"1995-00-00",
+            "author":[
+               "Murray, S. S.",
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Stern Grant, C.",
+               "Kurtz, M. J."
+            ]
          },
          {
             "aff":[
@@ -3749,6 +3651,7 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1995-00-00",
             "author":[
                "Nelson, M. L.",
                "Gottlich, G. L.",
@@ -3761,25 +3664,105 @@ data = \
                "Kurtz, M. J.",
                "Accomazzi, A.",
                "Syed, O."
-            ],
-            "year":"1995"
+            ]
          },
          {
             "aff":[
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO",
-               "SAO"
+               "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
+            "pubdate":"1995-00-00",
             "author":[
                "Eichhorn, G.",
+               "Murray, S. S.",
                "Kurtz, M. J.",
                "Accomazzi, A.",
-               "Grant, C. S.",
-               "Murray, S. S."
+               "Grant, C. S."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"1994"
+            "pubdate":"1995-00-00",
+            "author":[
+               "Grant, C. S.",
+               "Accomazzi, A.",
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
+               "-",
+               "-",
+               "-",
+               "-"
+            ],
+            "pubdate":"1995-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory, Cambridge, MA, U.S.A.",
+               "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany. (Affiliated to Astrophysics Division, Space Science Department, European Space Agency.)",
+               "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany"
+            ],
+            "pubdate":"1995-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Murtagh, F.",
+               "Rasmussen, B. F."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
+               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
+               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
+               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
+               "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA"
+            ],
+            "pubdate":"1995-00-00",
+            "author":[
+               "Eichhorn, G.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Kurtz, M. J.",
+               "Murray, S. S."
+            ]
+         },
+         {
+            "aff":[
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
+               "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A."
+            ],
+            "pubdate":"1995-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Eichhorn, G.",
+               "Grant, C. S.",
+               "Murray, S. S.",
+               "Kurtz, M. J."
+            ]
          },
          {
             "aff":[
@@ -3789,23 +3772,40 @@ data = \
                "SAO",
                "SAO"
             ],
+            "pubdate":"1994-12-00",
             "author":[
                "Accomazzi, A.",
                "Grant, C.",
                "Eichhorn, G.",
                "Kurtz, M.",
                "Murray, S."
+            ]
+         },
+         {
+            "aff":[
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO",
+               "SAO"
             ],
-            "year":"1994"
+            "pubdate":"1994-12-00",
+            "author":[
+               "Eichhorn, G.",
+               "Kurtz, M. J.",
+               "Accomazzi, A.",
+               "Grant, C. S.",
+               "Murray, S. S."
+            ]
          },
          {
             "aff":[
                "Harvard-Smithsonian Ctr. for Astrophysics"
             ],
+            "pubdate":"1992-05-00",
             "author":[
                "Accomazzi, Alberto"
-            ],
-            "year":"1992"
+            ]
          },
          {
             "aff":[
@@ -3814,28 +3814,13 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1992-00-00",
             "author":[
                "Accomazzi, A.",
                "Delfini, D.",
                "Kurtz, M. J.",
                "Mussio, P."
-            ],
-            "year":"1992"
-         },
-         {
-            "aff":[
-               "-",
-               "-",
-               "-",
-               "-"
-            ],
-            "author":[
-               "Accomazzi, A.",
-               "Bordogna, G.",
-               "Mussio, P.",
-               "Rampini, A."
-            ],
-            "year":"1989"
+            ]
          },
          {
             "aff":[
@@ -3844,13 +3829,28 @@ data = \
                "Dipartimento di Fisica, Universit\u00e1 degli Studi di Milano",
                "Istituto di Fisica Cosmica e Tecnologie Relative, C.N.R."
             ],
+            "pubdate":"1989-00-00",
             "author":[
                "Accomazzi, A.",
                "Bordogna, G.",
                "Mussio, P.",
                "Rampini, A."
+            ]
+         },
+         {
+            "aff":[
+               "-",
+               "-",
+               "-",
+               "-"
             ],
-            "year":"1989"
+            "pubdate":"1989-00-00",
+            "author":[
+               "Accomazzi, A.",
+               "Bordogna, G.",
+               "Mussio, P.",
+               "Rampini, A."
+            ]
          },
          {
             "aff":[
@@ -3860,16 +3860,17 @@ data = \
                "-",
                "-"
             ],
+            "pubdate":"1988-00-00",
             "author":[
                "Accomazzi, A.",
                "Bordogna, G.",
                "Fresta, F.",
                "Mussio, P.",
                "Rampini, A."
-            ],
-            "year":"1988"
+            ]
          }
       ]
    }
 }
+
 

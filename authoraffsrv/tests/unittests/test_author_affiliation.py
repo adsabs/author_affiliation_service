@@ -37,31 +37,31 @@ class TestAuthorAffiliation(TestCase):
 
     def test_export_csv(self):
         # format the stubdata using the code
-        exported_data = Export(export.form_data.replace('\n', '').replace('\r', '')).format(EXPORT_FORMATS[0])
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[0])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.csv)
 
     def test_export_csv_div(self):
         # format the stubdata using the code
-        exported_data = Export(export.form_data.replace('\n', '').replace('\r', '')).format(EXPORT_FORMATS[1])
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[1])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.csv_div)
 
     def test_export_excel(self):
         # format the stubdata using the code
-        exported_data = Export(export.form_data.replace('\n', '').replace('\r', '')).format(EXPORT_FORMATS[2])
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[2])
         # now compare it with an already formatted data that we know is correct
-        assert(len(exported_data) == 22016)
+        assert(len(exported_data) == 5632)
 
     def test_export_excel_div(self):
         # format the stubdata using the code
-        exported_data = Export(export.form_data.replace('\n', '').replace('\r', '')).format(EXPORT_FORMATS[3])
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[3])
         # now compare it with an already formatted data that we know is correct
-        assert(len(exported_data) == 26112)
+        assert(len(exported_data) == 5632)
 
     def test_export_text(self):
         # format the stubdata using the code
-        exported_data = Export(export.form_data.replace('\n', '').replace('\r', '')).format(EXPORT_FORMATS[4])
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[4])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.text)
 
@@ -73,10 +73,10 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, 'error: no information received')
+        self.assertEqual(response, '{"error": "no information received"}')
 
 
-    def test_no_payload_param(self):
+    def test_no_payload_param_search(self):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
@@ -84,7 +84,17 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, 'error: no bibcodes found in payload (parameter name is "bibcodes")')
+        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
+
+    def test_no_payload_param_export(self):
+        """
+        Ensure that if payload without all the needed params is passed in, returns 400
+        """
+        r = self.client.post('/export', data=json.dumps({'missingParamsPayload': ''}))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "no selection found in payload (parameter name is `selected`)"}')
 
     def test_payload_param_error_max_author(self):
         """
@@ -95,7 +105,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, 'error: parameter maxauthor should be 0 or a positive integer')
+        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
 
 
     def test_payload_param_error_cutoff_year(self):
@@ -107,8 +117,31 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, 'error: parameter cutoffyear should be a year >= 1900')
+        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
 
+
+    def test_payload_param_error_empty_selection(self):
+        """
+        Ensure that if payload without all the needed params is passed in, returns 400
+        """
+        payload = {'selected': '', 'format':''}
+        r = self.client.post('/export', data=json.dumps(payload))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "no selection submitted"}')
+
+
+    def test_payload_param_error_wrong_format(self):
+        """
+        Ensure that if payload without all the needed params is passed in, returns 400
+        """
+        payload = {'selected': ["Accomazzi, A.||2017/09"], 'format':''}
+        r = self.client.post('/export', data=json.dumps(payload))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "no export format submitted"}')
 
 if __name__ == '__main__':
   unittest.main()

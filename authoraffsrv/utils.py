@@ -5,13 +5,12 @@ import requests
 
 from authoraffsrv.client import client
 
-
 def get_solr_data(bibcodes, start=0, sort='date desc'):
     data = 'bibcode\n' + '\n'.join(bibcodes)
 
     rows = min(current_app.config['AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR'], len(bibcodes))
 
-    fields = 'author,aff,year'
+    fields = 'author,aff,pubdate'
 
     params = {
         'q': '*:*',
