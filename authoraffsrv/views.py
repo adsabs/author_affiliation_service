@@ -5,7 +5,6 @@ import os
 import inspect
 
 from flask import current_app, request, Blueprint, Response, redirect
-from flask import Flask, render_template, send_file
 from flask_discoverer import advertise
 from flask import Response
 
@@ -24,12 +23,12 @@ bp = Blueprint('ads_author_affilation_service', __name__)
 
 
 EXPORT_FORMATS = [
-    "| Lastname, Firstname | Affiliation | [csv]",
-    "| Lastname | Firstname | Affiliation | [csv]",
-    "| Lastname, Firstname | Affiliation | [excel]",
-    "| Lastname | Firstname | Affiliation | [excel]",
-    "Lastname, Firstname(Affiliation)[text]",
-    "Lastname, Firstname(Affiliation)[browser]"
+    "| Lastname, Firstname | Affiliation | Last Active Date | [csv]",
+    "| Lastname | Firstname | Affiliation | Last Active Date | [csv]",
+    "| Lastname, Firstname | Affiliation | Last Active Date | [excel]",
+    "| Lastname | Firstname | Affiliation | Last Active Date | [excel]",
+    "Lastname, Firstname(Affiliation)Last Active Date[text]",
+    "Lastname, Firstname(Affiliation)Last Active Date[browser]"
 ]
 
 
@@ -52,25 +51,17 @@ class Export(object):
 
     REGEX_SELECTED_ITEM = re.compile(r'id_(.+?)_aff_(.+?)?\s\(')
 
-    def __init__(self, from_form):
+    def __init__(self, selected_authors):
         """
-        parse data from form and put it in a dict
-        :param from_form: data from form
+
+        :param selected: selected data
         """
         self.selected_authors = {}
-        if len(from_form) > 0:
-            items = from_form.split('||')
-            for item in items:
-                match = self.REGEX_SELECTED_ITEM.match(item)
-                if match:
-                    self.__add_selected_author(match.group(1), match.group(2))
-
-
-    def __add_selected_author(self, author, affiliation):
-        if affiliation == None:
-            affiliation = ''
-        self.selected_authors.setdefault(author, []).append(affiliation)
-
+        if len(selected_authors) > 0:
+            for selected_author in selected_authors:
+                values = selected_author.split('|')
+                if (len(values) == 3):
+                    self.selected_authors.setdefault(values[0], []).append(values[1] + '|' + values[2])
 
     def __export_to_csv(self):
         """
@@ -82,8 +73,9 @@ class Export(object):
         authors.sort()
         for author in authors:
             csv_string = csv_string + '"' + author + '",'
-            for affiliation in self.selected_authors[author]:
-                csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '",'
+            for value in self.selected_authors[author]:
+                [affiliation, last_active] = value.split('|')
+                csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '","' + last_active + '",'
             csv_string = csv_string + '\n'
         return csv_string
 
@@ -102,8 +94,9 @@ class Export(object):
             except IndexError:
                 author_split.append('')
             csv_string = csv_string + '"' + author_split[0] + '","' + author_split[1] + '",'
-            for affiliation in self.selected_authors[author]:
-                csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '",'
+            for value in self.selected_authors[author]:
+                [affiliation, last_active] = value.split('|')
+                csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '","' + last_active + '",'
             csv_string = csv_string + '\n'
         return csv_string
 
@@ -123,9 +116,11 @@ class Export(object):
         for author in authors:
             sheet.write(row, 0, author)
             col = 1
-            for affiliation in self.selected_authors[author]:
+            for value in self.selected_authors[author]:
+                [affiliation, last_active] = value.split('|')
                 sheet.write(row, col, affiliation)
-                col += 1
+                sheet.write(row, col+1, last_active)
+                col += 2
             row += 1
 
         # save the spreadsheet to a temporary file
@@ -163,9 +158,11 @@ class Export(object):
             sheet.write(row, 1, author_split[1])
             # write the affiliations
             col = 2
-            for affiliation in self.selected_authors[author]:
+            for value in self.selected_authors[author]:
+                [affiliation, last_active] = value.split('|')
                 sheet.write(row, col, affiliation)
-                col += 1
+                sheet.write(row, col+1, last_active)
+                col += 2
             row += 1
 
         # save the spreadsheet to a temporary file
@@ -190,23 +187,24 @@ class Export(object):
         authors.sort()
         for author in authors:
             txt_string = txt_string + author + ' ('
-            for affiliation in self.selected_authors[author]:
-                txt_string = txt_string + affiliation + '; '
+            for value in self.selected_authors[author]:
+                [affiliation, last_active] = value.split('|')
+                txt_string = txt_string + affiliation + '; ' + last_active + '; '
             txt_string = txt_string + ')\n'
         return txt_string
 
 
     def __return_response(self, response, content_type, content_disposition, status):
 
-        r = Response(response=response, status=status)
-
         if status == 200:
+            r = Response(response=response, status=status)
             r.headers['content-type'] = content_type
             r.headers['content-disposition'] = content_disposition
             current_app.logger.debug('returning results with status code 200')
         else:
+            r = Response(response=json.dumps(response), status=status)
             r.headers['content-type'] = 'text/plain'
-            current_app.logger.error('{} status code = {}'.format(response, status))
+            current_app.logger.error('{} status code = {}'.format(json.dumps(response), status))
 
         return r
 
@@ -224,7 +222,7 @@ class Export(object):
             return self.__export_to_text()
         if export_format == EXPORT_FORMATS[5]:
             return self.__export_to_text()
-        return ''
+        return self.__export_to_text()
 
 
     def get(self, export_format):
@@ -277,51 +275,32 @@ class Formatter:
     from_solr = {}
 
     def __init__(self, from_solr):
+        """
+
+        :param from_solr:
+        """
         self.from_solr = from_solr
         if (self.from_solr.get('responseHeader')):
             self.status = self.from_solr['responseHeader'].get('status', self.status)
 
 
     def get_status(self):
+        """
+
+        :return:
+        """
         return self.status
 
 
     def get_num_docs(self):
+        """
+
+        :return:
+        """
         if (self.status == 0):
             if (self.from_solr.get('response')):
                 return self.from_solr['response'].get('numFound', 0)
         return 0
-
-
-    def __union(self, a, b, cutoff_year):
-        """
-        :param a: first list
-        :param b: second list
-        :param cutoff_year: do not include a record if its year is less than this
-        :return: union of two lists
-        """
-        if len(a) == 0:
-            for y in b:
-                if int(y[2]) < cutoff_year:
-                    b.remove(y)
-            return b
-        if len(b) == 0:
-            for x in a:
-                if int(x[2]) < cutoff_year:
-                    a.remove(x)
-            return a
-        # find the records that exist in a and need to be updated by the year of a b element
-        update_year = [y for y in b if any(x[0] == y[0] and x[1] == y[1] for x in a)]
-        for y in update_year:
-            for i, x in enumerate(a):
-                if y[2] not in x[2] and int(y[2]) >= cutoff_year:
-                    a[i] = (x[0], x[1], x[2] + ', ' + y[2])
-        # the rest of b are the new elements that need to be added to a
-        add_in = list(set(b) - set(update_year))
-        for y in add_in:
-            if int(y[2]) >= cutoff_year:
-                a.append(y)
-        return a
 
 
     def __get_list(self, max_author, cutoff_year):
@@ -334,42 +313,58 @@ class Formatter:
             author_aff = []
             for index in range(self.get_num_docs()):
                 a_doc = self.from_solr['response'].get('docs')[index]
-                year = a_doc['year'] if 'year' in a_doc else None
-                if 'author' in a_doc and 'aff' in a_doc:
-                    one_set = list((author, aff if aff != '-' else None, year) for author, aff in zip(a_doc['author'], a_doc['aff']))
-                    if (max_author != 0):
-                        one_set = one_set[:max_author+1]
-                    author_aff = self.__union(author_aff, one_set, cutoff_year)
-            return author_aff
+                if 'author' in a_doc and 'aff' in a_doc and 'pubdate' in a_doc:
+                    if (int(a_doc['pubdate'][:4]) >= cutoff_year):
+                        author_list = a_doc['author']
+                        aff_list = a_doc['aff']
+                        if (max_author != 0):
+                            author_list = author_list[:max_author + 1]
+                            aff_list = aff_list[:max_author + 1]
+                        for author, aff in zip(author_list, aff_list):
+                            idx = [idx for idx, elem in enumerate(author_aff) if elem[0] == author and elem[1] == aff]
+                            if len(idx) > 0:
+                                author_aff[idx[0]][2].update([a_doc['pubdate'][:4]])
+                                author_aff[idx[0]][3] = a_doc['pubdate'] if a_doc['pubdate'] > author_aff[idx[0]][3] else author_aff[idx[0]][3]
+                            else:
+                                author_aff.append([author, aff, set([a_doc['pubdate'][:4]]), a_doc['pubdate']])
+            return sorted(author_aff, key=lambda x: x[0])
         return None
 
 
-    def __merge_aff(self, the_list):
+    def __get_true_last_active_date(self, last_active_date):
         """
-        for each author merge their affiliation and publication year, and then return a sorted dict
+
+        :param last_active_date:
+        :return: last active date without any 0 in month and date fields
+        """
+        parts = last_active_date.split('-')
+        true_date = ''
+        for part in parts:
+            if (int(part) != 0):
+                if (len(true_date) > 0):
+                    true_date += '/'
+                true_date += part
+        return true_date
+
+
+    def __to_json(self, the_list):
+        """
+
         :param the_list:
+        :return:
         """
-        the_dict = {}
-        for item in the_list:
-            the_dict.setdefault(item[0], []).append(item[1] + ' (' + item[2] + ')' if item[1]  != None else '' + ' (' + item[2] + ')')
-        return OrderedDict(sorted(the_dict.items()))
-
-
-    def __to_json(self, the_dict):
         data = []
-        for key, values in the_dict.iteritems():
-            for value in values:
-                name, years = value.split(' (', 1)
+        for elem in the_list:
+            affiliations = {}
+            affiliations['name'] = elem[1]
+            affiliations['years'] = sorted(elem[2], reverse=True)
 
-                affiliations = {}
-                affiliations['name'] = name.rstrip()
-                affiliations['years'] = years.rstrip(')').split(', ')
+            item = {}
+            item['authorName'] = elem[0]
+            item['lastActiveDate'] = self.__get_true_last_active_date(elem[3])
+            item['affiliations'] = affiliations
 
-                item = {}
-                item['authorName'] = key
-                item['affiliations'] = affiliations
-
-                data.append(item)
+            data.append(item)
 
         the_json = {}
         the_json['data'] = data
@@ -379,19 +374,18 @@ class Formatter:
     def get(self, max_author=0, cutoff_year=10):
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
-            return self.__to_json(self.__merge_aff(the_list))
+            return self.__to_json(the_list)
         return None
 
 
 def __return_response(response, status):
-    r = Response(response=response, status=status)
+    r = Response(response=json.dumps(response), status=status)
+    r.headers['content-type'] = 'application/json'
 
     if status == 200:
-        r.headers['content-type'] = 'application/json'
         current_app.logger.debug('returning results with status code 200')
     else:
-        r.headers['content-type'] = 'text/plain'
-        current_app.logger.error('{} status code = {}'.format(response, status))
+        current_app.logger.error('{} status code = {}'.format(json.dumps(response), status))
 
     return r
 
@@ -410,6 +404,7 @@ def __is_number(s):
         pass
     return False
 
+from tests.unittests.stubdata import solrdata      #delete when switched
 
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/search', methods=['POST'])
@@ -420,32 +415,36 @@ def search():
         payload = dict(request.form)  # post data in form encoding
 
     if not payload:
-        return __return_response('error: no information received', 400)
-    elif 'bibcodes' not in payload:
-        return __return_response('error: no bibcodes found in payload (parameter name is "bibcodes")', 400)
+        return __return_response({'error': 'no information received'}, 400)
+    elif 'bibcode' not in payload:
+        return __return_response({'error': 'no bibcode found in payload (parameter name is `bibcode`)'}, 400)
 
-    bibcodes = payload['bibcodes']
+    bibcodes = payload['bibcode']
+    if (len(bibcodes) == 0):
+        return __return_response({'error': 'no bibcode submitted'}, 400)
+
     # default number of authors is to include all
     max_author = 0
     if 'maxauthor' in payload:
-        maxauthor = payload['maxauthor']
-        if (maxauthor < 0):
-            return __return_response('error: parameter maxauthor should be 0 or a positive integer', 400)
-        max_author = maxauthor
-    # default cutoff is 10 years from today
-    cutoff_year = datetime.datetime.now().year - 10
-    if 'cutoffyear' in payload:
-        cutoffyear = payload['cutoffyear']
-        if (cutoffyear < 1900):
-            return __return_response('error: parameter cutoffyear should be a year >= 1900', 400)
-        cutoff_year = cutoffyear
+        if __is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
+            max_author = int(payload['maxauthor'][0])
+        else:
+            return __return_response({'error': 'parameter maxauthor should be 0 or a positive integer'}, 400)
+    # default cutoff is 4 years from today
+    cutoff_year = datetime.datetime.now().year - 4
+    if 'numyears' in payload:
+        if __is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
+            cutoff_year = datetime.datetime.now().year - int(payload['numyears'][0])
+        else:
+            return __return_response({'error': 'parameter numyears should be positive integer'}, 400)
 
     current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
     bibcodes=bibcodes,
     max_author=max_author,
     cutoff_year=cutoff_year))
 
-    from_solr = get_solr_data(bibcodes=bibcodes)
+    #from_solr = get_solr_data(bibcodes=bibcodes)
+    from_solr = solrdata.data
     if from_solr is not None:
         result = Formatter(from_solr).get(max_author, cutoff_year)
         if result is not None:
@@ -453,12 +452,29 @@ def search():
     return __return_response('error: no result from solr', 404)
 
 
-# todo: modify after tim created his page
-@bp.route('/export_selection_top', methods=['POST'])
-def export_selection_top():
-    jsonData = json.loads(request.form['selected_info_top'])
-    return Export(jsonData['selected']).get(jsonData['format'])
-@bp.route('/export_selection_bottom', methods=['POST'])
-def export_selection_bottom():
-    jsonData = json.loads(request.form['selected_info_bottom'])
-    return Export(jsonData['selected']).get(jsonData['format'])
+@bp.route('/export', methods=['POST'])
+def export():
+    try:
+        payload = request.get_json(force=True)  # post data in json
+    except:
+        payload = dict(request.form)  # post data in form encoding
+
+    if not payload:
+        return __return_response({'error': 'no information received'}, 400)
+    elif 'selected' not in payload:
+        return __return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
+
+    selected = payload['selected']
+    if (len(selected) == 0):
+        return __return_response({'error': 'no selection submitted'}, 400)
+
+    if 'format' in payload:
+        format = payload['format']
+        if (len(format) == 0):
+            return __return_response({'error': 'no export format submitted'}, 400)
+    else:
+        return __return_response({'error': 'no export format specified in payload (parameter name is `format`)'}, 400)
+
+    current_app.logger.info('received request to export with selected={selected}'.format(selected=selected))
+    return Export(selected).get(format)
+

@@ -1,29 +1,34 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os
-import inspect
+from werkzeug.serving import run_simple
 
-from adsmutils import ADSFlask, load_module
+from flask_restful import Api
+from flask_discoverer import Discoverer
 
-import authoraffsrv
+from adsmutils import ADSFlask
+
 from authoraffsrv.views import bp
 
-def create_app(config=None):
+def create_app(**config):
     """
     Create the application and return it to the user
     :return: flask.Flask application
     """
 
-    proj_home = os.path.dirname(inspect.getsourcefile(authoraffsrv))
-    local_config = load_module(os.path.abspath(os.path.join(proj_home, 'config.py')))
+    if config:
+        app = ADSFlask(__name__, static_folder=None, local_config=config)
+    else:
+        app = ADSFlask(__name__, static_folder=None)
 
-    app = ADSFlask(__name__, static_folder=None, proj_home=proj_home, local_config=local_config)
     app.url_map.strict_slashes = False
+
+    # Register extensions
+    api = Api(app)
+    Discoverer(app)
 
     app.register_blueprint(bp)
     return app
 
 if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
+    run_simple('0.0.0.0', 5000, create_app(), use_reloader=False, use_debugger=False)
