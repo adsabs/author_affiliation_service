@@ -18,7 +18,7 @@ for each article, default is 0, to include all) and numyears
 
 For example
 
-`curl -H "Content-Type: application/json" -X POST -d '{"bibcode":["2017arXiv170909566R","2016SPIE.9910E..0AM"],"maxauthor":0, "cutoffyear":4}' http://localhost:4000/search`
+`curl -H "Content-Type: application/json" -X POST -d '{"bibcode":["2017arXiv170909566R","2016SPIE.9910E..0AM"],"maxauthor":0, "cutoffyear":4}' http://localhost:5000/search`
 
 ##### Step 2: send selected data by user to spreadsheet
 
@@ -43,4 +43,4 @@ is one of the followings:
 
 For example
 
-`curl -H "Content-Type: application/json" -X POST -d '{"selected":"Accomazzi, A.|Harvard-Smithsonian Center for Astrophysics, Cambridge, USA|2015/04", "Accomazzi, A.|SAO/NASA Astrophysics Data System, USA|2015/04", "format":"Lastname, Firstname(Affiliation)Last Active Date[text]"}' http://localhost:4000/export`
+`curl -H "Content-Type: application/json" -X POST -d '{"selected":"Accomazzi, A.|Harvard-Smithsonian Center for Astrophysics, Cambridge, USA|2015/04", "Accomazzi, A.|SAO/NASA Astrophysics Data System, USA|2015/04", "format":"Lastname, Firstname(Affiliation)Last Active Date[text]"}' http://localhost:5000/export`
