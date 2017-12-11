@@ -210,7 +210,7 @@ class Export(object):
             current_app.logger.debug('returning results with status code 200')
         else:
             r = Response(response=json.dumps(response), status=status)
-            r.headers['content-type'] = 'text/plain'
+            r.headers['content-type'] = 'application/json'
             current_app.logger.error('{} status code = {}'.format(json.dumps(response), status))
 
         return r
@@ -234,7 +234,7 @@ class Export(object):
             return self.__export_to_text()
         if export_format == EXPORT_FORMATS[5]:
             return self.__export_to_text()
-        return self.__export_to_text()
+        return self.__return_response({'error': 'unrecognizable export format specified'}, 400)
 
 
     def get(self, export_format):
@@ -491,7 +491,7 @@ def search():
 @bp.route('/export', methods=['POST'])
 def export():
     """
-    
+
     :return:
     """
     try:
