@@ -195,7 +195,14 @@ class Export(object):
 
 
     def __return_response(self, response, content_type, content_disposition, status):
+        """
 
+        :param response:
+        :param content_type:
+        :param content_disposition:
+        :param status:
+        :return:
+        """
         if status == 200:
             r = Response(response=response, status=status)
             r.headers['content-type'] = content_type
@@ -203,13 +210,18 @@ class Export(object):
             current_app.logger.debug('returning results with status code 200')
         else:
             r = Response(response=json.dumps(response), status=status)
-            r.headers['content-type'] = 'text/plain'
+            r.headers['content-type'] = 'application/json'
             current_app.logger.error('{} status code = {}'.format(json.dumps(response), status))
 
         return r
 
 
     def format(self, export_format):
+        """
+        used for unit test
+        :param export_format:
+        :return:
+        """
         if export_format == EXPORT_FORMATS[0]:
             return self.__export_to_csv()
         if export_format == EXPORT_FORMATS[1]:
@@ -222,10 +234,15 @@ class Export(object):
             return self.__export_to_text()
         if export_format == EXPORT_FORMATS[5]:
             return self.__export_to_text()
-        return self.__export_to_text()
+        return self.__return_response({'error': 'unrecognizable export format specified'}, 400)
 
 
     def get(self, export_format):
+        """
+
+        :param export_format:
+        :return:
+        """
         if export_format == EXPORT_FORMATS[0]:
             content = self.__export_to_csv()
             return self.__return_response(content,
@@ -262,7 +279,7 @@ class Export(object):
                                    'text/plain; charset=UTF-8',
                                    '', #''Content-disposition', 'attachment;filename=ADS_Author-Affiliation.txt'
                                    200 if len(content) > 0 else 400)
-        return self.__return_response('', '', '', 400)
+        return self.__return_response({'error': 'unrecognizable export format specified'}, 'application/json', '', 400)
 
 
 
@@ -372,6 +389,12 @@ class Formatter:
 
 
     def get(self, max_author=0, cutoff_year=10):
+        """
+
+        :param max_author:
+        :param cutoff_year:
+        :return:
+        """
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
             return self.__to_json(the_list)
@@ -379,6 +402,12 @@ class Formatter:
 
 
 def __return_response(response, status):
+    """
+
+    :param response:
+    :param status:
+    :return:
+    """
     r = Response(response=json.dumps(response), status=status)
     r.headers['content-type'] = 'application/json'
 
@@ -391,6 +420,11 @@ def __return_response(response, status):
 
 
 def __is_number(s):
+    """
+
+    :param s:
+    :return:
+    """
     try:
         float(s)
         return True
@@ -404,11 +438,14 @@ def __is_number(s):
         pass
     return False
 
-from tests.unittests.stubdata import solrdata      #delete when switched
 
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/search', methods=['POST'])
 def search():
+    """
+
+    :return:
+    """
     try:
         payload = request.get_json(force=True)  # post data in json
     except:
@@ -443,8 +480,7 @@ def search():
     max_author=max_author,
     cutoff_year=cutoff_year))
 
-    #from_solr = get_solr_data(bibcodes=bibcodes)
-    from_solr = solrdata.data
+    from_solr = get_solr_data(bibcodes=bibcodes)
     if from_solr is not None:
         result = Formatter(from_solr).get(max_author, cutoff_year)
         if result is not None:
@@ -454,6 +490,10 @@ def search():
 
 @bp.route('/export', methods=['POST'])
 def export():
+    """
+
+    :return:
+    """
     try:
         payload = request.get_json(force=True)  # post data in json
     except:
@@ -470,7 +510,9 @@ def export():
 
     if 'format' in payload:
         format = payload['format']
-        if (len(format) == 0):
+        if (len(format) >= 1):
+            format = format[0]
+        else:
             return __return_response({'error': 'no export format submitted'}, 400)
     else:
         return __return_response({'error': 'no export format specified in payload (parameter name is `format`)'}, 400)
