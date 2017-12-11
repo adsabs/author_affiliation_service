@@ -195,7 +195,14 @@ class Export(object):
 
 
     def __return_response(self, response, content_type, content_disposition, status):
+        """
 
+        :param response:
+        :param content_type:
+        :param content_disposition:
+        :param status:
+        :return:
+        """
         if status == 200:
             r = Response(response=response, status=status)
             r.headers['content-type'] = content_type
@@ -209,7 +216,33 @@ class Export(object):
         return r
 
 
+    def format(self, export_format):
+        """
+        used for unit test
+        :param export_format:
+        :return:
+        """
+        if export_format == EXPORT_FORMATS[0]:
+            return self.__export_to_csv()
+        if export_format == EXPORT_FORMATS[1]:
+            return self.__export_to_csv_div()
+        if export_format == EXPORT_FORMATS[2]:
+            return self.__export_to_excel()
+        if export_format == EXPORT_FORMATS[3]:
+            return self.__export_to_excel_div()
+        if export_format == EXPORT_FORMATS[4]:
+            return self.__export_to_text()
+        if export_format == EXPORT_FORMATS[5]:
+            return self.__export_to_text()
+        return self.__export_to_text()
+
+
     def get(self, export_format):
+        """
+
+        :param export_format:
+        :return:
+        """
         if export_format == EXPORT_FORMATS[0]:
             content = self.__export_to_csv()
             return self.__return_response(content,
@@ -356,6 +389,12 @@ class Formatter:
 
 
     def get(self, max_author=0, cutoff_year=10):
+        """
+
+        :param max_author:
+        :param cutoff_year:
+        :return:
+        """
         the_list = self.__get_list(max_author, cutoff_year)
         if the_list:
             return self.__to_json(the_list)
@@ -363,6 +402,12 @@ class Formatter:
 
 
 def __return_response(response, status):
+    """
+
+    :param response:
+    :param status:
+    :return:
+    """
     r = Response(response=json.dumps(response), status=status)
     r.headers['content-type'] = 'application/json'
 
@@ -375,6 +420,11 @@ def __return_response(response, status):
 
 
 def __is_number(s):
+    """
+
+    :param s:
+    :return:
+    """
     try:
         float(s)
         return True
@@ -392,6 +442,10 @@ def __is_number(s):
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/search', methods=['POST'])
 def search():
+    """
+
+    :return:
+    """
     try:
         payload = request.get_json(force=True)  # post data in json
     except:
@@ -436,6 +490,10 @@ def search():
 
 @bp.route('/export', methods=['POST'])
 def export():
+    """
+    
+    :return:
+    """
     try:
         payload = request.get_json(force=True)  # post data in json
     except:
