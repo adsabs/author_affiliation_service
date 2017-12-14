@@ -375,10 +375,10 @@ class Formatter:
             affiliations = {}
             affiliations['name'] = elem[1]
             affiliations['years'] = sorted(elem[2], reverse=True)
-            affiliations['authorName'] = elem[0]
+            affiliations['lastActiveDate'] = self.__get_true_last_active_date(elem[3])
 
             item = {}
-            item['lastActiveDate'] = self.__get_true_last_active_date(elem[3])
+            item['authorName'] = elem[0]
             item['affiliations'] = affiliations
 
             data.append(item)
