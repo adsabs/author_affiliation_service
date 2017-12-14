@@ -143,5 +143,18 @@ class TestAuthorAffiliation(TestCase):
         self.assertEqual(status, 400)
         self.assertEqual(response, '{"error": "no export format submitted"}')
 
+
+    def test_payload_param_error_unrecognizable_format(self):
+        """
+        Ensure that if payload without a correct format params is passed in, returns 400
+        """
+        payload = {'selected': ["Accomazzi, A.||2017/09"], 'format':'something wrong'}
+        r = self.client.post('/export', data=json.dumps(payload))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "unrecognizable export format specified"}')
+
+
 if __name__ == '__main__':
   unittest.main()
