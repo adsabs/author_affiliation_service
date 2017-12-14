@@ -43,4 +43,4 @@ is one of the followings:
 
 For example
 
-`curl -H "Content-Type: application/json" -X POST -d '{"selected":"Accomazzi, A.|Harvard-Smithsonian Center for Astrophysics, Cambridge, USA|2015/04", "Accomazzi, A.|SAO/NASA Astrophysics Data System, USA|2015/04", "format":"Lastname, Firstname(Affiliation)Last Active Date[text]"}' http://localhost:5000/export`
+`curl -H "Content-Type: application/json" -X POST -d '{"selected":["Accomazzi, A.|Harvard-Smithsonian Center for Astrophysics, Cambridge, USA|2015/04", "Accomazzi, A.|SAO/NASA Astrophysics Data System, USA|2015/04"], "format":"Lastname, Firstname(Affiliation)Last Active Date[text]"}' http://localhost:5000/export`

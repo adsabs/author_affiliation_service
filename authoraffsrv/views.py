@@ -375,9 +375,9 @@ class Formatter:
             affiliations = {}
             affiliations['name'] = elem[1]
             affiliations['years'] = sorted(elem[2], reverse=True)
+            affiliations['authorName'] = elem[0]
 
             item = {}
-            item['authorName'] = elem[0]
             item['lastActiveDate'] = self.__get_true_last_active_date(elem[3])
             item['affiliations'] = affiliations
 
@@ -501,12 +501,13 @@ def export():
 
     if not payload:
         return __return_response({'error': 'no information received'}, 400)
-    elif 'selected' not in payload:
-        return __return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
 
-    selected = payload['selected']
-    if (len(selected) == 0):
-        return __return_response({'error': 'no selection submitted'}, 400)
+    if 'selected' in payload:
+        selected = payload['selected']
+        if (len(selected) == 0):
+            return __return_response({'error': 'no selection submitted'}, 400)
+    else:
+        return __return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
 
     if 'format' in payload:
         format = payload['format']
