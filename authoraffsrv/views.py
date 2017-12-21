@@ -1,15 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os
-import inspect
 
 from flask import current_app, request, Blueprint, Response, redirect
 from flask_discoverer import advertise
 from flask import Response
 
-import requests
-from collections import OrderedDict
+import os
 import datetime
 import re
 import json
@@ -488,6 +485,7 @@ def search():
     return __return_response('error: no result from solr', 404)
 
 
+@advertise(scopes=[], rate_limit=[1000, 3600 * 24])
 @bp.route('/export', methods=['POST'])
 def export():
     """
@@ -512,7 +510,7 @@ def export():
     if 'format' in payload:
         format = payload['format']
         if (len(format) >= 1):
-            format = format[0]
+            format = str(format[0])
         else:
             return __return_response({'error': 'no export format submitted'}, 400)
     else:
