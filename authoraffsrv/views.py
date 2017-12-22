@@ -508,11 +508,7 @@ def export():
         return __return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
 
     if 'format' in payload:
-        format = payload['format']
-        if (len(format) >= 1):
-            format = str(format[0])
-        else:
-            return __return_response({'error': 'no export format submitted'}, 400)
+        format = ''.join(payload['format'])
     else:
         return __return_response({'error': 'no export format specified in payload (parameter name is `format`)'}, 400)
 
