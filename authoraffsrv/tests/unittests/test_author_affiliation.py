@@ -141,7 +141,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no export format submitted"}')
+        self.assertEqual(response, '{"error": "unrecognizable export format specified"}')
 
 
     def test_payload_param_error_unrecognizable_format(self):
