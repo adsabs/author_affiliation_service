@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from flask import current_app, request, Blueprint, Response, redirect
 from flask_discoverer import advertise
 from flask import Response
@@ -472,11 +471,11 @@ def search():
             return __return_response({'error': 'parameter numyears should be positive integer'}, 400)
 
     current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
-    bibcodes=bibcodes,
-    max_author=max_author,
-    cutoff_year=cutoff_year))
+            bibcodes=bibcodes,
+            max_author=max_author,
+            cutoff_year=cutoff_year))
 
-    from_solr = get_solr_data(bibcodes=bibcodes)
+    from_solr = get_solr_data(bibcodes=bibcodes, cutoff_year=cutoff_year)
     if from_solr is not None:
         result = Formatter(from_solr).get(max_author, cutoff_year)
         if result is not None:

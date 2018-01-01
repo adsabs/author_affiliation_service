@@ -4,15 +4,17 @@ import requests
 
 from authoraffsrv.client import client
 
-def get_solr_data(bibcodes, start=0, sort='date desc'):
+def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
     data = 'bibcode\n' + '\n'.join(bibcodes)
 
     rows = min(current_app.config['AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR'], len(bibcodes))
 
+    query = 'year >= "' + str(cutoff_year) + '"'
+
     fields = 'author,aff,pubdate'
 
     params = {
-        'q': '*:*',
+        'q': query,
         'wt': 'json',
         'rows': rows,
         'start': start,
@@ -30,7 +32,9 @@ def get_solr_data(bibcodes, start=0, sort='date desc'):
             data=data,
             headers=headers
         )
-        return response.json()
+        if (response.status_code == 200):
+            return response.json()
+        return None
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
         current_app.logger.error('Solr exception. Terminated request.')
