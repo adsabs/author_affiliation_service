@@ -22,7 +22,7 @@ class TestAuthorAffiliation(TestCase):
 
     def test_formatted_data(self):
         # format the stubdata using the code
-        formatted_data = Formatter(solrdata.data).get(0, datetime.datetime.now().year)
+        formatted_data = Formatter(solrdata.data).get(0, 2017)
         # now compare it with an already formatted data that we know is correct
         assert(formatted_data == formatted.data)
 
