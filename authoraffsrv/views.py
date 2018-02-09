@@ -396,7 +396,7 @@ class Formatter:
         return None
 
 
-def __return_response(response, status):
+def return_response(response, status):
     """
 
     :param response:
@@ -414,7 +414,7 @@ def __return_response(response, status):
     return r
 
 
-def __is_number(s):
+def is_number(s):
     """
 
     :param s:
@@ -447,28 +447,28 @@ def search():
         payload = dict(request.form)  # post data in form encoding
 
     if not payload:
-        return __return_response({'error': 'no information received'}, 400)
+        return return_response({'error': 'no information received'}, 400)
     elif 'bibcode' not in payload:
-        return __return_response({'error': 'no bibcode found in payload (parameter name is `bibcode`)'}, 400)
+        return return_response({'error': 'no bibcode found in payload (parameter name is `bibcode`)'}, 400)
 
     bibcodes = payload['bibcode']
-    if (len(bibcodes) == 0):
-        return __return_response({'error': 'no bibcode submitted'}, 400)
+    if (len(''.join(bibcodes)) == 0):
+        return return_response({'error': 'no bibcode submitted'}, 400)
 
     # default number of authors is to include all
     max_author = 0
     if 'maxauthor' in payload:
-        if __is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
+        if is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
             max_author = int(payload['maxauthor'][0])
         else:
-            return __return_response({'error': 'parameter maxauthor should be 0 or a positive integer'}, 400)
+            return return_response({'error': 'parameter maxauthor should be a positive integer >= 0'}, 400)
     # default cutoff is 4 years from today
     cutoff_year = datetime.datetime.now().year - 4
     if 'numyears' in payload:
-        if __is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
+        if is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
             cutoff_year = datetime.datetime.now().year - int(payload['numyears'][0])
         else:
-            return __return_response({'error': 'parameter numyears should be positive integer'}, 400)
+            return return_response({'error': 'parameter numyears should be positive integer > 0'}, 400)
 
     current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
             bibcodes=bibcodes,
@@ -479,8 +479,8 @@ def search():
     if from_solr is not None:
         result = Formatter(from_solr).get(max_author, cutoff_year)
         if result is not None:
-            return __return_response(result, 200)
-    return __return_response('error: no result from solr', 404)
+            return return_response(result, 200)
+    return return_response('error: no result from solr', 404)
 
 
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
@@ -496,19 +496,19 @@ def export():
         payload = dict(request.form)  # post data in form encoding
 
     if not payload:
-        return __return_response({'error': 'no information received'}, 400)
+        return return_response({'error': 'no information received'}, 400)
 
     if 'selected' in payload:
         selected = payload['selected']
-        if (len(selected) == 0):
-            return __return_response({'error': 'no selection submitted'}, 400)
+        if (len(''.join(selected)) == 0):
+            return return_response({'error': 'no selection submitted'}, 400)
     else:
-        return __return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
+        return return_response({'error': 'no selection found in payload (parameter name is `selected`)'}, 400)
 
     if 'format' in payload:
         format = ''.join(payload['format'])
     else:
-        return __return_response({'error': 'no export format specified in payload (parameter name is `format`)'}, 400)
+        return return_response({'error': 'no export format specified in payload (parameter name is `format`)'}, 400)
 
     current_app.logger.info('received request to export with selected={selected}'.format(selected=selected))
     return Export(selected).get(format)

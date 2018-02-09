@@ -5,15 +5,12 @@ import os
 PROJECT_HOME = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../'))
 sys.path.append(PROJECT_HOME)
 
-import datetime
-import json
-
 from flask_testing import TestCase
 import unittest
 
 import authoraffsrv.app as app
 from authoraffsrv.tests.unittests.stubdata import solrdata, formatted, export
-from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS
+from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS, is_number
 
 class TestAuthorAffiliation(TestCase):
     def create_app(self):
@@ -35,37 +32,79 @@ class TestAuthorAffiliation(TestCase):
         formatted_data = Formatter(solr_data).get()
         assert(formatted_data == None)
 
-    def test_export_csv(self):
+    def test_export_csv_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[0])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.csv)
 
-    def test_export_csv_div(self):
+    def test_export_csv_div_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[1])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.csv_div)
 
-    def test_export_excel(self):
+    def test_export_excel_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[2])
         # now compare it with an already formatted data that we know is correct
         assert(len(exported_data) == 5632)
 
-    def test_export_excel_div(self):
+    def test_export_excel_div_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[3])
         # now compare it with an already formatted data that we know is correct
         assert(len(exported_data) == 5632)
 
-    def test_export_text(self):
+    def test_export_text_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[4])
         # now compare it with an already formatted data that we know is correct
         assert(exported_data == export.text)
 
-    def test_no_payload(self):
+    def test_export_text_format2(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).format(EXPORT_FORMATS[5])
+        # now compare it with an already formatted data that we know is correct
+        assert(exported_data == export.text)
+
+    def test_export_csv_get(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[0])
+        # now check the status_code to be 200
+        assert (exported_data.status_code == 200)
+
+    def test_export_csv_div_get(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[1])
+        # now compare it with an already formatted data that we know is correct
+        assert (exported_data.status_code == 200)
+
+    def test_export_excel_get(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[2])
+        # now compare it with an already formatted data that we know is correct
+        assert (exported_data.status_code == 200)
+
+    def test_export_excel_div_get(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[3])
+        # now compare it with an already formatted data that we know is correct
+        assert (exported_data.status_code == 200)
+
+    def test_export_text_get(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[4])
+        # now compare it with an already formatted data that we know is correct
+        assert (exported_data.status_code == 200)
+
+    def test_export_text_get2(self):
+        # format the stubdata using the code
+        exported_data = Export(export.form_data).get(EXPORT_FORMATS[5])
+        # now compare it with an already formatted data that we know is correct
+        assert (exported_data.status_code == 200)
+
+    def test_search_no_payload(self):
         """
         Ensure that if no payload is passed in, returns 400
         """
@@ -75,22 +114,41 @@ class TestAuthorAffiliation(TestCase):
         self.assertEqual(status, 400)
         self.assertEqual(response, '{"error": "no information received"}')
 
+    def test_export_no_payload(self):
+        """
+        Ensure that if no payload is passed in, returns 400
+        """
+        r = self.client.post('/export')
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "no information received"}')
 
-    def test_no_payload_param_search(self):
+    def test_search_no_payload_param(self):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        r = self.client.post('/search', data=json.dumps({'missingParamsPayload': ''}))
+        r = self.client.post('/search', data=dict({'missingParamsPayload': ''}))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
         self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
 
-    def test_no_payload_param_export(self):
+    def test_search_no_bibcode_payload(self):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        r = self.client.post('/export', data=json.dumps({'missingParamsPayload': ''}))
+        r = self.client.post('/search', data=dict({'bibcode': ''}))
+        status = r.status_code
+        response = r.data
+        self.assertEqual(status, 400)
+        self.assertEqual(response, '{"error": "no bibcode submitted"}')
+
+    def test_export_no_payload_param(self):
+        """
+        Ensure that if payload without all the needed params is passed in, returns 400
+        """
+        r = self.client.post('/export', data=dict({'missingParamsPayload': ''}))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
@@ -100,24 +158,24 @@ class TestAuthorAffiliation(TestCase):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        payload = {'bibcodes': ["1994AAS...185.4102A","1994AAS...185.4104E"], 'maxauthor':-1}
-        r = self.client.post('/search', data=json.dumps(payload))
+        payload = {'bibcode': ["1994AAS...185.4102A","1994AAS...185.4104E"], 'maxauthor':-1}
+        r = self.client.post('/search', data=dict(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
+        self.assertEqual(response, '{"error": "parameter maxauthor should be a positive integer >= 0"}')
 
 
     def test_payload_param_error_cutoff_year(self):
         """
         Ensure that if payload without all the needed params is passed in, returns 400
         """
-        payload = {'bibcodes': ["1994AAS...185.4102A", "1994AAS...185.4104E"], 'cutoffyear':1800}
-        r = self.client.post('/search', data=json.dumps(payload))
+        payload = {'bibcode': ["1994AAS...185.4102A", "1994AAS...185.4104E"], 'numyears':-1}
+        r = self.client.post('/search', data=dict(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
+        self.assertEqual(response, '{"error": "parameter numyears should be positive integer > 0"}')
 
 
     def test_payload_param_error_empty_selection(self):
@@ -125,7 +183,7 @@ class TestAuthorAffiliation(TestCase):
         Ensure that if payload without all the needed params is passed in, returns 400
         """
         payload = {'selected': '', 'format':''}
-        r = self.client.post('/export', data=json.dumps(payload))
+        r = self.client.post('/export', data=dict(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
@@ -137,7 +195,7 @@ class TestAuthorAffiliation(TestCase):
         Ensure that if payload without all the needed params is passed in, returns 400
         """
         payload = {'selected': ["Accomazzi, A.||2017/09"], 'format':''}
-        r = self.client.post('/export', data=json.dumps(payload))
+        r = self.client.post('/export', data=dict(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
@@ -149,11 +207,59 @@ class TestAuthorAffiliation(TestCase):
         Ensure that if payload without a correct format params is passed in, returns 400
         """
         payload = {'selected': ["Accomazzi, A.||2017/09"], 'format':'something wrong'}
-        r = self.client.post('/export', data=json.dumps(payload))
+        r = self.client.post('/export', data=dict(payload))
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
         self.assertEqual(response, '{"error": "unrecognizable export format specified"}')
+
+    def test_is_number(self):
+        """
+        Ensure is_number behaves properly
+        """
+        self.assertEqual(is_number('1'), True)
+        self.assertEqual(is_number('-1'), True)
+        self.assertEqual(is_number('notnumber'), False)
+
+    def test_xml_status(self):
+        solr_data = \
+            {
+               "responseHeader":{
+                  "status":0,
+                  "QTime":1,
+                  "params":{
+                     "sort":"date desc",
+                     "fq":"{!bitset}",
+                     "rows":"19",
+                     "q":"*:*",
+                     "start":"0",
+                     "wt":"json",
+                     "fl":"author,title,year,date,pub,pub_raw,issue,volume,page,page_range,aff,doi,abstract,citation_count,read_count,bibcode,identification,copyright,keyword,doctype,reference,comment,property,esources,data"
+                  }
+               }
+            }
+        formatted_data = Formatter(solr_data)
+        assert(formatted_data.get_status() == 0)
+
+    def test_xml_no_num_docs(self):
+        solr_data = \
+            {
+               "responseHeader":{
+                  "status":1,
+                  "QTime":1,
+                  "params":{
+                     "sort":"date desc",
+                     "fq":"{!bitset}",
+                     "rows":"19",
+                     "q":"*:*",
+                     "start":"0",
+                     "wt":"json",
+                     "fl":"author,title,year,date,pub,pub_raw,issue,volume,page,page_range,aff,doi,abstract,citation_count,read_count,bibcode,identification,copyright,keyword,doctype,reference,comment,property,esources,data"
+                  }
+               }
+            }
+        formatted_data = Formatter(solr_data)
+        assert(formatted_data.get_num_docs() == 0)
 
 
 if __name__ == '__main__':
