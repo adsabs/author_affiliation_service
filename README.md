@@ -9,6 +9,7 @@
 This microservice creates author/affiliation spreadsheets.
 
 
+
 ## Setup (recommended)
 
     $ virtualenv python
@@ -17,7 +18,18 @@ This microservice creates author/affiliation spreadsheets.
     $ pip install -r dev-requirements.txt
     $ vim local_config.py # edit, edit
 
-    
+
+
+## Testing
+
+On your desktop run:
+
+    $ py.test
+
+
+
+## API
+
 #### Make a request:
 
     curl -H "Authorization: Bearer <your API token>" -H "Content-Type: application/json" -X POST -d <payload> <endpoint>
@@ -62,14 +74,8 @@ is one of the followings:
 For example to output a spreadsheet using the *text* format, for the two publications of *Accomazzi, A.*, you would do
 
     curl -H "Authorization: Bearer <your API token>" -H "Content-Type: application/json" -X POST -d '{"selected":["Accomazzi, A.|Harvard-Smithsonian Center for Astrophysics, Cambridge, USA|2015/04", "Accomazzi, A.|SAO/NASA Astrophysics Data System, USA|2015/04"], "format":"Lastname, Firstname(Affiliation)Last Active Date[text]"}' https://api.adsabs.harvard.edu/v1/author-affiliation/export`
-
-
-## Testing
-
-On your desktop run:
-
-    $ py.test
     
+
 
 ## Maintainers
 
