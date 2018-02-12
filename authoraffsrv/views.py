@@ -457,18 +457,25 @@ def search():
 
     # default number of authors is to include all
     max_author = 0
-    if 'maxauthor' in payload:
-        if is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
-            max_author = int(payload['maxauthor'][0])
-        else:
-            return return_response({'error': 'parameter maxauthor should be a positive integer >= 0'}, 400)
+    try:
+        if 'maxauthor' in payload:
+            if is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
+                max_author = int(payload['maxauthor'][0])
+            else:
+                return return_response({'error': 'parameter maxauthor should be a positive integer >= 0'}, 400)
+    except (ValueError,KeyError):
+        current_app.logger.debug('optional parameter maxauthor not passed in')
+
     # default cutoff is 4 years from today
     cutoff_year = datetime.datetime.now().year - 4
-    if 'numyears' in payload:
-        if is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
-            cutoff_year = datetime.datetime.now().year - int(payload['numyears'][0])
-        else:
-            return return_response({'error': 'parameter numyears should be positive integer > 0'}, 400)
+    try:
+        if 'numyears' in payload:
+            if is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
+                cutoff_year = datetime.datetime.now().year - int(payload['numyears'][0])
+            else:
+                return return_response({'error': 'parameter numyears should be positive integer > 0'}, 400)
+    except (ValueError,KeyError):
+        current_app.logger.debug('optional parameter numyears not passed in')
 
     current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
             bibcodes=bibcodes,
