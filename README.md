@@ -46,7 +46,7 @@ for each article, default is 0, to include all) and numyears
 
 For example to return *all* authors and their affiliations for the past *4 years* of the two articles with bibcodes 2017arXiv170909566R, 2016SPIE.9910E..0AM, you would do   
 
-    curl -H "Authorization: Bearer <your API token>" -H "Content-Type: application/json" -X POST -d '{"bibcode":["2017arXiv170909566R","2016SPIE.9910E..0AM"],"maxauthor":0, "cutoffyear":4}' https://api.adsabs.harvard.edu/v1/author-affiliation/search
+    curl -H "Authorization: Bearer <your API token>" -H "Content-Type: application/json" -X POST -d '{"bibcode":["2017arXiv170909566R","2016SPIE.9910E..0AM"],"maxauthor":0, "numyears":4}' https://api.adsabs.harvard.edu/v1/author-affiliation/search
 
 
 ### Step 2: Format Data
