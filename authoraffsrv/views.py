@@ -315,10 +315,10 @@ class Formatter:
         return 0
 
 
-    def __get_list(self, max_author, cutoff_year):
+    def __get_list(self, num_authors, cutoff_year):
         """
         get unique list of author affiliation
-        :param max_author: max number of authors to fetch for each article
+        :param num_authors: max number of authors to fetch for each article
         :param cut_offyear: do not include the year if it is less than this
         """
         if (self.status == 0):
@@ -329,9 +329,9 @@ class Formatter:
                     if (int(a_doc['pubdate'][:4]) >= cutoff_year):
                         author_list = a_doc['author']
                         aff_list = a_doc['aff']
-                        if (max_author != 0):
-                            author_list = author_list[:max_author + 1]
-                            aff_list = aff_list[:max_author + 1]
+                        if (num_authors != 0):
+                            author_list = author_list[:num_authors + 1]
+                            aff_list = aff_list[:num_authors + 1]
                         for author, aff in zip(author_list, aff_list):
                             idx = [idx for idx, elem in enumerate(author_aff) if elem[0] == author and elem[1] == aff]
                             if len(idx) > 0:
@@ -383,14 +383,14 @@ class Formatter:
         return json.dumps(the_json)
 
 
-    def get(self, max_author=0, cutoff_year=10):
+    def get(self, num_authors=0, cutoff_year=10):
         """
 
-        :param max_author:
+        :param num_authors:
         :param cutoff_year:
         :return:
         """
-        the_list = self.__get_list(max_author, cutoff_year)
+        the_list = self.__get_list(num_authors, cutoff_year)
         if the_list:
             return self.__to_json(the_list)
         return None
@@ -456,11 +456,15 @@ def search():
         return return_response({'error': 'no bibcode submitted'}, 400)
 
     # default number of authors is to include all
-    max_author = 0
+    num_authors = 0
     try:
         if 'maxauthor' in payload:
-            if is_number(payload['maxauthor'][0]) and int(payload['maxauthor'][0]) >= 0:
-                max_author = int(payload['maxauthor'][0])
+            if type(payload['maxauthor']) is list:
+                maxauthor = payload['maxauthor'][0]
+            else:
+                maxauthor = payload['maxauthor']
+            if is_number(maxauthor) and int(maxauthor) >= 0:
+                num_authors = int(maxauthor)
             else:
                 return return_response({'error': 'parameter maxauthor should be a positive integer >= 0'}, 400)
     except (ValueError,KeyError):
@@ -470,21 +474,25 @@ def search():
     cutoff_year = datetime.datetime.now().year - 4
     try:
         if 'numyears' in payload:
-            if is_number(payload['numyears'][0]) and int(payload['numyears'][0]) >= 0:
-                cutoff_year = datetime.datetime.now().year - int(payload['numyears'][0])
+            if type(payload['numyears']) is list:
+                numyears = payload['numyears'][0]
+            else:
+                numyears = payload['numyears']
+            if is_number(numyears) and int(numyears) >= 0:
+                cutoff_year = max(1000, datetime.datetime.now().year - int(numyears))
             else:
                 return return_response({'error': 'parameter numyears should be positive integer > 0'}, 400)
     except (ValueError,KeyError):
         current_app.logger.debug('optional parameter numyears not passed in')
 
-    current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={max_author} and cutoff year={cutoff_year}'.format(
+    current_app.logger.info('received request with bibcodes={bibcodes} and using max number author={num_authors} and cutoff year={cutoff_year}'.format(
             bibcodes=bibcodes,
-            max_author=max_author,
+            num_authors=num_authors,
             cutoff_year=cutoff_year))
 
     from_solr = get_solr_data(bibcodes=bibcodes, cutoff_year=cutoff_year)
     if from_solr is not None:
-        result = Formatter(from_solr).get(max_author, cutoff_year)
+        result = Formatter(from_solr).get(num_authors, cutoff_year)
         if result is not None:
             return return_response(result, 200)
     return return_response('error: no result from solr', 404)
