@@ -6,7 +6,15 @@
 
 ## Short Summary
 
-This microservice creates author/affiliation spreadsheets.
+This microservice creates author/affiliation spreadsheets. This is a two-step process. 
+
+In the first step a list of bibcodes along with two optional parameters are submitted to endpoint /search. The two optional parameters are: number-of-authors to return for each record, and number-of-years, from current year, to include in the query. If the optional parameters are omitted, the default for number-of-authors is to include all authors, and for number-of-years to include the recent 4 years. Note that to have all years included simply set the parameter number-of-years to the current year (ie, 2018).
+
+Note that because of number-of-years threshold, not all the submitted bibcodes would be considered. For example, if 200 bibcodes are submitted, and number-of-years is set to include the current year only, then only those records that were published this year are considered, which might include a small number of the original 200 bibcodes.
+
+Also note that number of unique authors returned depends on how many of the articles have a common first number-of-authors author. For example, if all the articles were authored by the same author at the same affiliation and number-of-authors is set to 1, only one author/affiliation is returned. The same author having multiple affiliations would result in multiple returned records.
+
+In the second step a list of selected author/affiliation/publication date is submitted to endpoint /export be formatted by one of the 6 available spreadsheet formats.
 
 
 
