@@ -264,13 +264,13 @@ class Export(object):
         if export_format == EXPORT_FORMATS[3]:
             content = self.__export_to_excel_div()
             return self.__return_response(content,
-                                   'application/vnd.ms-excel',
+                                   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                                    'attachment;filename=ADS_Author-Affiliation.xls',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[4]:
             content = self.__export_to_text()
             return self.__return_response(content,
-                                   'application/vnd.ms-excel',
+                                   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                                    'attachment;filename=ADS_Author-Affiliation.txt',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[5]:
