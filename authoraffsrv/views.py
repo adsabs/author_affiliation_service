@@ -208,7 +208,8 @@ class Export(object):
             r.headers['content-type'] = content_type
             r.headers['content-disposition'] = content_disposition
             r.headers['content-length'] = len(response)
-            current_app.logger.debug('returning results with status code 200')
+            current_app.logger.info('returning results with status code 200')
+            current_app.logger.info('the file size transferred is {length} KB'.format(length=len(response)))
         else:
             r = Response(response=json.dumps(response), status=status)
             r.headers['content-type'] = 'application/json'
