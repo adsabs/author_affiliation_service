@@ -207,6 +207,7 @@ class Export(object):
             r = Response(response=response, status=status)
             r.headers['content-type'] = content_type
             r.headers['content-disposition'] = content_disposition
+            r.headers['content-length'] = len(response)
             current_app.logger.debug('returning results with status code 200')
         else:
             r = Response(response=json.dumps(response), status=status)
@@ -258,19 +259,19 @@ class Export(object):
         if export_format == EXPORT_FORMATS[2]:
             content = self.__export_to_excel()
             return self.__return_response(content,
-                                   'text/xls; charset=UTF-8',
+                                   'application/vnd.ms-excel',
                                    'attachment;filename=ADS_Author-Affiliation.xls',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[3]:
             content = self.__export_to_excel_div()
             return self.__return_response(content,
-                                   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                   'application/vnd.ms-excel',
                                    'attachment;filename=ADS_Author-Affiliation.xls',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[4]:
             content = self.__export_to_text()
             return self.__return_response(content,
-                                   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                   'text/plain; charset=UTF-8',
                                    'attachment;filename=ADS_Author-Affiliation.txt',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[5]:
