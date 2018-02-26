@@ -5,6 +5,10 @@ from flask_discoverer import advertise
 from flask import Response
 
 import os
+import sys
+from os.path import dirname, abspath
+basedir = dirname(abspath(__file__)) + '/'
+sys.path.append(basedir)
 import datetime
 import re
 import json
@@ -25,6 +29,7 @@ EXPORT_FORMATS = [
     "Lastname, Firstname(Affiliation)Last Active Date[text]",
     "Lastname, Firstname(Affiliation)Last Active Date[browser]"
 ]
+
 
 
 class Export(object):
@@ -259,13 +264,13 @@ class Export(object):
         if export_format == EXPORT_FORMATS[3]:
             content = self.__export_to_excel_div()
             return self.__return_response(content,
-                                   'text/xls; charset=UTF-8',
+                                   'application/vnd.ms-excel',
                                    'attachment;filename=ADS_Author-Affiliation.xls',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[4]:
             content = self.__export_to_text()
             return self.__return_response(content,
-                                   'text/plain; charset=UTF-8',
+                                   'application/vnd.ms-excel',
                                    'attachment;filename=ADS_Author-Affiliation.txt',
                                    200 if len(content) > 0 else 400)
         if export_format == EXPORT_FORMATS[5]:
@@ -330,8 +335,8 @@ class Formatter:
                         author_list = a_doc['author']
                         aff_list = a_doc['aff']
                         if (num_authors != 0):
-                            author_list = author_list[:num_authors + 1]
-                            aff_list = aff_list[:num_authors + 1]
+                            author_list = author_list[:num_authors]
+                            aff_list = aff_list[:num_authors]
                         for author, aff in zip(author_list, aff_list):
                             idx = [idx for idx, elem in enumerate(author_aff) if elem[0] == author and elem[1] == aff]
                             if len(idx) > 0:
@@ -470,8 +475,8 @@ def search():
     except (ValueError,KeyError):
         current_app.logger.debug('optional parameter maxauthor not passed in')
 
-    # default cutoff is 4 years from today
-    cutoff_year = datetime.datetime.now().year - 4
+    # default cutoff is to return all years
+    cutoff_year = datetime.datetime.now().year
     try:
         if 'numyears' in payload:
             if type(payload['numyears']) is list:
@@ -479,7 +484,11 @@ def search():
             else:
                 numyears = payload['numyears']
             if is_number(numyears) and int(numyears) >= 0:
-                cutoff_year = max(1000, datetime.datetime.now().year - int(numyears))
+                # include all years, lower limit is 1000, upper limit is in utils
+                if int(numyears) == 0:
+                    cutoff_year = 1000
+                else:
+                    cutoff_year = datetime.datetime.now().year - int(numyears)
             else:
                 return return_response({'error': 'parameter numyears should be positive integer > 0'}, 400)
     except (ValueError,KeyError):

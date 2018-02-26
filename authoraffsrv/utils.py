@@ -9,7 +9,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
 
     rows = min(current_app.config['AUTHOR_AFFILATION_SERVICE_MAX_RECORDS_SOLR'], len(bibcodes))
 
-    query = 'year >= "' + str(cutoff_year) + '"'
+    query = 'year:' + str(cutoff_year) + '-3000'
 
     fields = 'author,aff,pubdate'
 
