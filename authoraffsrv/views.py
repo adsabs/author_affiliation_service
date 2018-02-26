@@ -475,8 +475,8 @@ def search():
     except (ValueError,KeyError):
         current_app.logger.debug('optional parameter maxauthor not passed in')
 
-    # default cutoff is to return all years
-    cutoff_year = datetime.datetime.now().year
+    # default is to include all years, lower limit is 1000, upper limit is 3000, and it is in utils
+    cutoff_year = 1000
     try:
         if 'numyears' in payload:
             if type(payload['numyears']) is list:
@@ -484,7 +484,6 @@ def search():
             else:
                 numyears = payload['numyears']
             if is_number(numyears) and int(numyears) >= 0:
-                # include all years, lower limit is 1000, upper limit is in utils
                 if int(numyears) == 0:
                     cutoff_year = 1000
                 else:
