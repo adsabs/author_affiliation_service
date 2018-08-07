@@ -1,6 +1,7 @@
 import logging
 LOG_LEVEL = 30 # To be deprecated when all microservices use ADSFlask
 LOGGING_LEVEL = "INFO"
+LOG_STDOUT = True
 AUTHOR_AFFILIATION_SOLRQUERY_URL = ""
 AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN = ''
 
