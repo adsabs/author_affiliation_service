@@ -1,4 +1,4 @@
-git+https://github.com/adsabs/ADSMicroserviceUtils.git@v1.0.3
+git+https://github.com/adsabs/ADSMicroserviceUtils.git@v1.0.4
 Flask==0.12.2
 flask-discoverer==0.0.2
 Flask-RESTful==0.3.6
