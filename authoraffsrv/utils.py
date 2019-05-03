@@ -23,7 +23,10 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
         'fq': '{!bitset}'
     }
 
-    headers = {'Authorization':'Bearer '+current_app.config['AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN']}
+    headers = {
+        'Authorization': 'Bearer '+current_app.config['AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN'],
+        'Content-Type': 'big-query/csv',
+    }
 
     try:
         response = client().post(
