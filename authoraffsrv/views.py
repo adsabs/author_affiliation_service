@@ -505,7 +505,7 @@ def search():
         result = Formatter(from_solr).get(num_authors, cutoff_year)
         if result is not None:
             return return_response(result, 200)
-    return return_response('error: no result from solr', 404)
+    return return_response({'error': 'no result from solr'}, 404)
 
 
 @advertise(scopes=[], rate_limit=[1000, 3600 * 24])
