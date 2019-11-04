@@ -387,7 +387,7 @@ class Formatter:
 
         the_json = {}
         the_json['data'] = data
-        return json.dumps(the_json)
+        return the_json
 
 
     def get(self, num_authors=0, cutoff_year=10):
