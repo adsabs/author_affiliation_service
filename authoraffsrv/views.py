@@ -14,6 +14,7 @@ import re
 import json
 import xlwt
 import uuid
+import unidecode
 
 from authoraffsrv.utils import get_solr_data
 
@@ -63,6 +64,16 @@ class Export(object):
                 if (len(values) == 3):
                     self.selected_authors.setdefault(values[0], []).append(values[1] + '|' + values[2])
 
+    def __unidecode(self, the_string):
+        """
+
+        :param the_string:
+        :return:
+        """
+        if isinstance(the_string, unicode):
+            return unidecode.unidecode(the_string)
+        return the_string
+
     def __export_to_csv(self):
         """
         function that exports the data to CSV
@@ -77,7 +88,7 @@ class Export(object):
                 [affiliation, last_active] = value.split('|')
                 csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '","' + last_active + '",'
             csv_string = csv_string + '\n'
-        return csv_string
+        return self.__unidecode(csv_string)
 
     def __export_to_csv_div(self):
         """
@@ -98,7 +109,7 @@ class Export(object):
                 [affiliation, last_active] = value.split('|')
                 csv_string = csv_string + '"' + affiliation.replace('"', '\"') + '","' + last_active + '",'
             csv_string = csv_string + '\n'
-        return csv_string
+        return self.__unidecode(csv_string)
 
 
     def __export_to_excel(self):
@@ -176,7 +187,6 @@ class Export(object):
         os.remove(filename)
         return xls_str
 
-
     def __export_to_text(self):
         """
         method that creates a text format
@@ -191,8 +201,7 @@ class Export(object):
                 [affiliation, last_active] = value.split('|')
                 txt_string = txt_string + affiliation + '; ' + last_active + '; '
             txt_string = txt_string + ')\n'
-        return txt_string
-
+        return self.__unidecode(txt_string)
 
     def __return_response(self, response, content_type, content_disposition, status):
         """
