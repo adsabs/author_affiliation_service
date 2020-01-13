@@ -331,6 +331,20 @@ class Formatter:
         return 0
 
 
+    def is_complete(self):
+        """
+
+        :return:
+        """
+        # make sure all the records have all three necessary fields
+        if (self.get_num_docs() > 0):
+            for doc in self.from_solr['response'].get('docs', None):
+                if doc.get('author', None) is not None and \
+                   doc.get('aff_raw', None) is not None and \
+                   doc.get('pubdate', None) is not None:
+                    return True
+        return False
+
     def __get_list(self, num_authors, cutoff_year):
         """
         get unique list of author affiliation
@@ -341,20 +355,19 @@ class Formatter:
             author_aff = []
             for index in range(self.get_num_docs()):
                 a_doc = self.from_solr['response'].get('docs')[index]
-                if 'author' in a_doc and 'aff' in a_doc and 'pubdate' in a_doc:
-                    if (int(a_doc['pubdate'][:4]) >= cutoff_year):
-                        author_list = a_doc['author']
-                        aff_list = a_doc['aff']
-                        if (num_authors != 0):
-                            author_list = author_list[:num_authors]
-                            aff_list = aff_list[:num_authors]
-                        for author, aff in zip(author_list, aff_list):
-                            idx = [idx for idx, elem in enumerate(author_aff) if elem[0] == author and elem[1] == aff]
-                            if len(idx) > 0:
-                                author_aff[idx[0]][2].update([a_doc['pubdate'][:4]])
-                                author_aff[idx[0]][3] = a_doc['pubdate'] if a_doc['pubdate'] > author_aff[idx[0]][3] else author_aff[idx[0]][3]
-                            else:
-                                author_aff.append([author, aff, set([a_doc['pubdate'][:4]]), a_doc['pubdate']])
+                if (int(a_doc['pubdate'][:4]) >= cutoff_year):
+                    author_list = a_doc['author']
+                    aff_list = a_doc['aff_raw']
+                    if (num_authors != 0):
+                        author_list = author_list[:num_authors]
+                        aff_list = aff_list[:num_authors]
+                    for author, aff in zip(author_list, aff_list):
+                        idx = [idx for idx, elem in enumerate(author_aff) if elem[0] == author and elem[1] == aff]
+                        if len(idx) > 0:
+                            author_aff[idx[0]][2].update([a_doc['pubdate'][:4]])
+                            author_aff[idx[0]][3] = a_doc['pubdate'] if a_doc['pubdate'] > author_aff[idx[0]][3] else author_aff[idx[0]][3]
+                        else:
+                            author_aff.append([author, aff, set([a_doc['pubdate'][:4]]), a_doc['pubdate']])
             return sorted(author_aff, key=lambda x: x[0])
         return None
 
@@ -511,9 +524,12 @@ def search():
 
     from_solr = get_solr_data(bibcodes=bibcodes, cutoff_year=cutoff_year)
     if from_solr is not None:
-        result = Formatter(from_solr).get(num_authors, cutoff_year)
-        if result is not None:
-            return return_response(result, 200)
+        formatter = Formatter(from_solr)
+        if formatter.is_complete():
+            result = formatter.get(num_authors, cutoff_year)
+            if result is not None:
+                return return_response(result, 200)
+        return return_response({'error': 'solr data incomplete'}, 404)
     return return_response({'error': 'no result from solr'}, 404)
 
 
