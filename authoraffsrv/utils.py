@@ -11,7 +11,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
 
     query = 'year:' + str(cutoff_year) + '-3000'
 
-    fields = 'author,aff,pubdate'
+    fields = 'author,aff_raw,pubdate'
 
     params = {
         'q': query,

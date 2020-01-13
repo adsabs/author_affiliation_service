@@ -10,7 +10,7 @@ data = \
          "q":"*:*",
          "start":"0",
          "wt":"json",
-         "fl":"author,aff,pubdate"
+         "fl":"author,aff_raw,pubdate"
       }
    },
    "response":{
@@ -18,7 +18,7 @@ data = \
       "numFound":190,
       "docs":[
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -51,7 +51,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "NASA Goddard Space Flight Ctr. (United States)",
                "Smithsonian Astrophysical Observatory (United States)",
                "Smithsonian Astrophysical Observatory (United States)",
@@ -92,7 +92,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -115,7 +115,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -148,7 +148,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA"
             ],
             "pubdate":"2015-12-00",
@@ -157,7 +157,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -184,7 +184,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory"
@@ -197,7 +197,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory"
             ],
             "pubdate":"2015-08-00",
@@ -206,7 +206,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -233,7 +233,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, USA",
@@ -258,7 +258,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -283,7 +283,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -310,7 +310,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, USA",
                "Harvard-Smithsonian Center for Astrophysics, USA",
                "SAO/NASA Astrophysics Data System, USA",
@@ -331,7 +331,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -356,7 +356,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-"
@@ -369,7 +369,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
@@ -394,7 +394,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -413,7 +413,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -432,7 +432,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
@@ -455,7 +455,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Astrophysics Source Code Library",
                "Smithsonian Astrophysical Observatory",
                "Infrared Processing and Analysis Center, California Institute of Technology",
@@ -486,7 +486,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -509,7 +509,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA",
                "Department of Physics & Astronomy, The Johns Hopkins University, 3400 North Charles Street, Baltimore, MD 21218, USA",
                "Centre for Astrophysics & Supercomputing, Swinburne University of Technology, 1 Alfred Street, Hawthorn, 3122, Australia",
@@ -532,7 +532,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "University of Glasgow, United Kingdom",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -553,7 +553,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
                "Harvard Smithsonian, CfA",
@@ -576,7 +576,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA;",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA;"
             ],
@@ -587,7 +587,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory (United States)",
                "Smithsonian Astrophysical Observatory (United States)",
                "Smithsonian Astrophysical Observatory (United States)",
@@ -602,7 +602,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-"
             ],
@@ -613,7 +613,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -628,7 +628,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, USA",
                "Harvard-Smithsonian Center for Astrophysics, USA",
                "Harvard-Smithsonian Center for Astrophysics, USA"
@@ -641,7 +641,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -666,7 +666,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -681,7 +681,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Springer",
                "Springer",
                "Smithsonian Astrophysical Observatory"
@@ -694,7 +694,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
@@ -719,7 +719,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics"
             ],
             "pubdate":"2011-00-00",
@@ -728,7 +728,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics"
             ],
             "pubdate":"2011-00-00",
@@ -737,7 +737,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -762,7 +762,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -787,7 +787,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "STScI",
                "LCOGT",
                "ADS",
@@ -802,7 +802,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -819,7 +819,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-"
             ],
             "pubdate":"2010-10-00",
@@ -828,7 +828,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA",
@@ -851,7 +851,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
@@ -874,7 +874,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -899,7 +899,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -926,7 +926,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -947,7 +947,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -968,7 +968,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1157,7 +1157,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "University of Washington, Department of Biology",
                "Smithsonian Astrophysical Observatory",
@@ -1182,7 +1182,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
@@ -1203,7 +1203,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-"
@@ -1216,7 +1216,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1243,7 +1243,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-"
@@ -1256,7 +1256,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1289,7 +1289,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1316,7 +1316,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA",
@@ -1341,7 +1341,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -1360,7 +1360,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
                "Harvard Smithsonian Center for Astrophysics",
@@ -1381,7 +1381,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -1400,7 +1400,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -1421,7 +1421,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-"
@@ -1434,7 +1434,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1459,7 +1459,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1480,7 +1480,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1501,7 +1501,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1524,7 +1524,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1547,7 +1547,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1568,7 +1568,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1591,7 +1591,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard Smithsonian Center for Astrophysics, 60 Garden Street, MS-67, Cambridge, MA02138, USA",
                "Harvard Smithsonian Center for Astrophysics, 60 Garden Street, MS-67, Cambridge, MA02138, USA",
                "Harvard Smithsonian Center for Astrophysics, 60 Garden Street, MS-67, Cambridge, MA02138, USA",
@@ -1612,7 +1612,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1635,7 +1635,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1658,7 +1658,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -1685,7 +1685,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA",
                "Harvard-Smithsonian, CfA",
@@ -1708,7 +1708,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -1729,7 +1729,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Obs.",
                "Smithsonian Astrophysical Obs.",
                "Smithsonian Astrophysical Obs.",
@@ -1752,7 +1752,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -1773,7 +1773,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
@@ -1794,7 +1794,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1813,7 +1813,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1834,7 +1834,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1857,7 +1857,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
@@ -1878,7 +1878,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -1901,7 +1901,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -1922,7 +1922,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -1943,7 +1943,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -1964,7 +1964,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "EUROPEAN SOUTHERN OBSERVATORY, Garching bei M\u00fcnchen, Germany",
                "EUROPEAN SOUTHERN OBSERVATORY, Garching bei M\u00fcnchen, Germany",
                "EUROPEAN SOUTHERN OBSERVATORY, Garching bei M\u00fcnchen, Germany",
@@ -1981,7 +1981,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2002,7 +2002,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
@@ -2025,7 +2025,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
@@ -2044,7 +2044,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2063,7 +2063,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "CfA",
                "CfA",
                "CfA",
@@ -2082,7 +2082,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden Street MS-31, Cambridge, MA 02138, USA",
@@ -2101,7 +2101,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-"
             ],
@@ -2112,7 +2112,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2135,7 +2135,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2156,7 +2156,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Univ Heidelbergm Bergheimer Str 58, Heidelberg, Germany",
                "Harvard-Smithsonian Center for Astrophysics, 60 Garden St., Cambridge, MA, USA",
                "-",
@@ -2175,7 +2175,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "NASA HEASARC, Code 660.1, Greenbelt, MD 20771",
                "ADS SAO, Cambridge, MA 02138",
                "IRSA IPAC, Pasadena, CA 91125",
@@ -2202,7 +2202,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2219,7 +2219,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, MS-31, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, MS-31, 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, MS-31, 60 Garden Street, Cambridge, MA 02138, USA",
@@ -2238,7 +2238,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA.",
                "Harvard-Smithsonian CfA.",
                "Harvard-Smithsonian CfA.",
@@ -2257,7 +2257,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2280,7 +2280,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA.",
                "Harvard-Smithsonian CfA.",
                "Harvard-Smithsonian CfA.",
@@ -2299,7 +2299,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2316,7 +2316,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "CfA, Cambridge, MA, USA",
                "CfA, Cambridge, MA, USA",
                "CfA, Cambridge, MA, USA",
@@ -2335,7 +2335,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2354,7 +2354,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2373,7 +2373,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -2390,7 +2390,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
@@ -2409,7 +2409,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2426,7 +2426,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
@@ -2443,7 +2443,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138 USA",
@@ -2464,7 +2464,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2481,7 +2481,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -2500,7 +2500,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2517,7 +2517,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2534,7 +2534,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2553,7 +2553,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
@@ -2570,7 +2570,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
                "Harvard-Smithsonian Ctr. for Astrophysics, USA",
@@ -2587,7 +2587,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
@@ -2604,7 +2604,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -2621,7 +2621,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2640,7 +2640,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA, MS-83 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian CfA, MS-83 60 Garden Street, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian CfA, MS-83 60 Garden Street, Cambridge, MA 02138, USA",
@@ -2659,7 +2659,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA",
@@ -2678,7 +2678,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2697,7 +2697,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138",
@@ -2714,7 +2714,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2729,7 +2729,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "CfA",
                "CfA",
                "CfA",
@@ -2748,7 +2748,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2767,7 +2767,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2786,7 +2786,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -2805,7 +2805,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -2822,7 +2822,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2839,7 +2839,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -2858,7 +2858,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
                "Harvard-Smithsonian Center for Astrophysics",
@@ -2877,7 +2877,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "CfA",
                "CfA",
                "CfA",
@@ -2896,7 +2896,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -2915,7 +2915,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2932,7 +2932,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2949,7 +2949,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2966,7 +2966,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, USA",
@@ -2985,7 +2985,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3004,7 +3004,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
                "Harvard-Smithsonian CfA",
@@ -3023,7 +3023,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "CfA",
                "CfA",
                "CfA",
@@ -3042,7 +3042,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Center for Astrophysics Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics Cambridge, MA 02138, USA",
                "Harvard-Smithsonian Center for Astrophysics Cambridge, MA 02138, USA",
@@ -3061,7 +3061,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Alias|Wavefront Inc., Canada",
                "ISG Technologies, Inc., Canada",
                "ISG Technologies, Inc., Canada",
@@ -3078,7 +3078,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3097,7 +3097,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3116,7 +3116,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3133,7 +3133,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3150,7 +3150,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3167,7 +3167,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3184,7 +3184,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
                "Smithsonian Astrophysical Observatory",
@@ -3199,7 +3199,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3216,7 +3216,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3233,7 +3233,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3250,7 +3250,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA",
@@ -3265,7 +3265,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3282,7 +3282,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3299,7 +3299,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3316,7 +3316,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3331,7 +3331,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3348,7 +3348,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA, USA",
@@ -3363,7 +3363,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3386,7 +3386,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3409,7 +3409,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3426,7 +3426,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3443,7 +3443,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "-",
                "-",
@@ -3460,7 +3460,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3485,7 +3485,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3502,7 +3502,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3519,7 +3519,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "-",
                "-",
@@ -3536,7 +3536,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, USA",
                "-",
                "-",
@@ -3553,7 +3553,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
@@ -3570,7 +3570,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3587,7 +3587,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3604,7 +3604,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3621,7 +3621,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3638,7 +3638,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3667,7 +3667,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
                "-",
                "-",
@@ -3684,7 +3684,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden St., Cambridge, MA 02138",
                "-",
                "-",
@@ -3701,7 +3701,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138",
                "-",
                "-",
@@ -3718,7 +3718,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA, U.S.A.",
                "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany. (Affiliated to Astrophysics Division, Space Science Department, European Space Agency.)",
                "Space Telescope - European Coordinating Facility, European Southern Observatory, Garching near Munich, Germany"
@@ -3731,7 +3731,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
                "Smithsonian Astrophysical Observatory, Cambridge, MA 02138, USA",
@@ -3748,7 +3748,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
                "Smithsonian Astrophysical Observatory, 60 Garden Street, Cambridge, MA 02138, U.S.A.",
@@ -3765,7 +3765,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3782,7 +3782,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "SAO",
                "SAO",
                "SAO",
@@ -3799,7 +3799,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Harvard-Smithsonian Ctr. for Astrophysics"
             ],
             "pubdate":"1992-05-00",
@@ -3808,7 +3808,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3823,7 +3823,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "Dipartimento di Fisica, Universit\u00e1 degli Studi di Milano",
                "Istituto di Fisica Cosmica e Tecnologie Relative, C.N.R.",
                "Dipartimento di Fisica, Universit\u00e1 degli Studi di Milano",
@@ -3838,7 +3838,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3853,7 +3853,7 @@ data = \
             ]
          },
          {
-            "aff":[
+            "aff_raw":[
                "-",
                "-",
                "-",
@@ -3873,4 +3873,50 @@ data = \
    }
 }
 
-
+data2 = \
+{
+   "responseHeader": {
+      "status": 1,
+      "QTime": 1,
+      "params": {
+         "sort": "date desc",
+         "fq": "{!bitset}",
+         "rows": "19",
+         "q": "*:*",
+         "start": "0",
+         "wt": "json",
+         "fl": "author,aff_raw,pubdate"
+      }
+   },
+   "response": {
+      "start": 0,
+      "numFound": 2,
+      "docs": [
+         {
+            "pubdate": "2017-09-00",
+            "author": [
+               "Teplitz, H.",
+               "Groom, S.",
+               "Akeson, R.",
+               "Berriman, G. B.",
+               "Helou, G.",
+               "Imel, D.",
+               "Mazzarella, J. M.",
+               "Accomazzi, A.",
+               "McGlynn, T.",
+               "Smale, A.",
+               "White, R."
+            ]
+         },
+         {
+            "aff_raw": [
+               "NASA Goddard Space Flight Ctr. (United States)",
+            ],
+            "pubdate": "2016-07-00",
+            "author": [
+               "McGlynn, Thomas",
+            ]
+         },
+      ]
+   }
+}
