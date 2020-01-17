@@ -21,7 +21,7 @@ class TestAuthorAffiliation(TestCase):
         # format the stubdata using the code
         formatted_data = Formatter(solrdata.data).get(0, 2017)
         # now compare it with an already formatted data that we know is correct
-        assert(formatted_data == formatted.data)
+        self.assertEqual(formatted_data, formatted.data)
 
     def test_solr_status_error(self):
         solr_data = {
@@ -30,79 +30,79 @@ class TestAuthorAffiliation(TestCase):
               }
            }
         formatted_data = Formatter(solr_data).get()
-        assert(formatted_data == None)
+        self.assertEqual(formatted_data, None)
 
     def test_export_csv_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[0])
         # now compare it with an already formatted data that we know is correct
-        assert(exported_data == export.csv)
+        self.assertEqual(exported_data, export.csv)
 
     def test_export_csv_div_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[1])
         # now compare it with an already formatted data that we know is correct
-        assert(exported_data == export.csv_div)
+        self.assertEqual(exported_data, export.csv_div)
 
     def test_export_excel_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[2])
         # now compare it with an already formatted data that we know is correct
-        assert(len(exported_data) == 5632)
+        self.assertEqual(len(exported_data), 5632)
 
     def test_export_excel_div_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[3])
         # now compare it with an already formatted data that we know is correct
-        assert(len(exported_data) == 5632)
+        self.assertEqual(len(exported_data), 5632)
 
     def test_export_text_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[4])
         # now compare it with an already formatted data that we know is correct
-        assert(exported_data == export.text)
+        self.assertEqual(exported_data, export.text)
 
     def test_export_text_format2(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[5])
         # now compare it with an already formatted data that we know is correct
-        assert(exported_data == export.text)
+        self.assertEqual(exported_data, export.text)
 
     def test_export_csv_get(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[0])
         # now check the status_code to be 200
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_export_csv_div_get(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[1])
         # now compare it with an already formatted data that we know is correct
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_export_excel_get(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[2])
         # now compare it with an already formatted data that we know is correct
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_export_excel_div_get(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[3])
         # now compare it with an already formatted data that we know is correct
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_export_text_get(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[4])
         # now compare it with an already formatted data that we know is correct
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_export_text_get2(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).get(EXPORT_FORMATS[5])
         # now compare it with an already formatted data that we know is correct
-        assert (exported_data.status_code == 200)
+        self.assertEqual (exported_data.status_code, 200)
 
     def test_search_no_payload(self):
         """
@@ -234,12 +234,12 @@ class TestAuthorAffiliation(TestCase):
                      "q":"*:*",
                      "start":"0",
                      "wt":"json",
-                     "fl":"author,title,year,date,pub,pub_raw,issue,volume,page,page_range,aff,doi,abstract,citation_count,read_count,bibcode,identification,copyright,keyword,doctype,reference,comment,property,esources,data"
+                     "fl":"author,aff,pubdate"
                   }
                }
             }
         formatted_data = Formatter(solr_data)
-        assert(formatted_data.get_status() == 0)
+        self.assertEqual(formatted_data.get_status(), 0)
 
     def test_xml_no_num_docs(self):
         solr_data = \
@@ -254,12 +254,22 @@ class TestAuthorAffiliation(TestCase):
                      "q":"*:*",
                      "start":"0",
                      "wt":"json",
-                     "fl":"author,title,year,date,pub,pub_raw,issue,volume,page,page_range,aff,doi,abstract,citation_count,read_count,bibcode,identification,copyright,keyword,doctype,reference,comment,property,esources,data"
+                     "fl":"author,aff,pubdate"
                   }
                }
             }
         formatted_data = Formatter(solr_data)
-        assert(formatted_data.get_num_docs() == 0)
+        self.assertEqual(formatted_data.get_num_docs(), 0)
+
+    def test_formatted_data_with_no_aff(self):
+        """
+        test the case with missing affiliation from solr record
+        """
+        # format the stubdata using the code
+        formatted_data = Formatter(solrdata.data2).get(0, 2016)
+        self.assertEqual(len(formatted_data), len(formatted.data))
+        # now compare it with an already formatted data that we know is correct
+        self.assertEqual(formatted_data, formatted.data2)
 
 
 if __name__ == '__main__':

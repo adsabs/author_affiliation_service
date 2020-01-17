@@ -3874,3 +3874,79 @@ data = \
 }
 
 
+data2 = \
+{
+   "responseHeader":{
+      "status":0,
+      "QTime":1,
+      "params":{
+         "sort":"date desc",
+         "fq":"{!bitset}",
+         "rows":"190",
+         "q":"*:*",
+         "start":"0",
+         "wt":"json",
+         "fl":"author,aff,pubdate"
+      }
+   },
+   "response":{
+      "start":0,
+      "numFound":2,
+      "docs":[
+         {
+            "aff":[
+               "NASA Goddard Space Flight Ctr. (United States)",
+               "Smithsonian Astrophysical Observatory (United States)",
+               "Smithsonian Astrophysical Observatory (United States)",
+               "NASA Goddard Space Flight Ctr. (United States)",
+               "Space Telescope Science Institute (United States)",
+               "Space Telescope Science Institute (United States)",
+               "Space Telescope Science Institute (United States)",
+               "Space Telescope Science Institute (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)",
+               "Infrared Processing and Analysis Ctr. (United States)"
+            ],
+            "pubdate":"2016-07-00",
+            "author":[
+               "McGlynn, Thomas",
+               "Fabbiano, Giuseppina",
+               "Accomazzi, Alberto",
+               "Smale, Alan",
+               "White, Richard L.",
+               "Donaldson, Thomas",
+               "Aloisi, Alessandra",
+               "Dower, Theresa",
+               "Mazzerella, Joseph M.",
+               "Ebert, Rick",
+               "Pevunova, Olga",
+               "Imel, David",
+               "Berriman, Graham B.",
+               "Teplitz, Harry I.",
+               "Groom, Steve L.",
+               "Desai, Vandana R.",
+               "Landry, Walter"
+            ]
+         },
+         {
+            "pubdate":"2016-01-00",
+            "author":[
+               "Accomazzi, Alberto",
+               "Kurtz, Michael J.",
+               "Henneken, Edwin A.",
+               "Grant, Carolyn S.",
+               "Thompson, Donna M.",
+               "Chyla, Roman",
+               "Holachek, Alexandra",
+               "Elliott, Jonathan"
+            ]
+         },
+      ]
+   }
+}

@@ -341,10 +341,10 @@ class Formatter:
             author_aff = []
             for index in range(self.get_num_docs()):
                 a_doc = self.from_solr['response'].get('docs')[index]
-                if 'author' in a_doc and 'aff' in a_doc and 'pubdate' in a_doc:
+                if 'author' in a_doc and 'pubdate' in a_doc:
                     if (int(a_doc['pubdate'][:4]) >= cutoff_year):
                         author_list = a_doc['author']
-                        aff_list = a_doc['aff']
+                        aff_list = a_doc.get('aff', ['-']*len(author_list))
                         if (num_authors != 0):
                             author_list = author_list[:num_authors]
                             aff_list = aff_list[:num_authors]
