@@ -1,5 +1,5 @@
 
-from flask import current_app
+from flask import current_app, request
 import requests
 
 from authoraffsrv.client import client
@@ -24,7 +24,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
     }
 
     headers = {
-        'Authorization': 'Bearer '+current_app.config['AUTHOR_AFFILIATION_SERVICE_ADSWS_API_TOKEN'],
+        'Authorization': 'Bearer %s' % request.headers.has('X-Forwarded-Authorization') and request.headers.get('X-Forwarded-Authorization', '') or request.headers.get('Authorization'),
         'Content-Type': 'big-query/csv',
     }
 
@@ -42,6 +42,8 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
                 num_docs = from_solr['response'].get('numFound', 0)
                 if num_docs > 0:
                     return from_solr
+        else:
+            current_app.logger.warn('Non-standard status from solr detected: %s, \n%s' % (response.status_code, response.json()))
         return None
     except requests.exceptions.RequestException as e:
         # catastrophic error. bail.
