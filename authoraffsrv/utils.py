@@ -24,7 +24,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
     }
 
     headers = {
-        'Authorization': 'Bearer %s' % request.headers.has('X-Forwarded-Authorization') and request.headers.get('X-Forwarded-Authorization', '') or request.headers.get('Authorization'),
+        'Authorization': request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', '')),
         'Content-Type': 'big-query/csv',
     }
 
