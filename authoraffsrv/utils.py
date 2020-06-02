@@ -24,9 +24,10 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
     }
 
     headers = {
-        'Authorization': request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', '')),
+        'Authorization': current_app.config.get('SERVICE_TOKEN', request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', ''))),
         'Content-Type': 'big-query/csv',
     }
+
 
     try:
         response = client().post(
