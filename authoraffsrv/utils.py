@@ -1,4 +1,5 @@
 
+from builtins import str
 from flask import current_app, request
 import requests
 

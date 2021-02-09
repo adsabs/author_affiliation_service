@@ -112,7 +112,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no information received"}')
+        self.assertEqual(response, b'{"error": "no information received"}')
 
     def test_export_no_payload(self):
         """
@@ -122,7 +122,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no information received"}')
+        self.assertEqual(response, b'{"error": "no information received"}')
 
     def test_search_no_payload_param(self):
         """
@@ -132,7 +132,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
+        self.assertEqual(response, b'{"error": "no bibcode found in payload (parameter name is `bibcode`)"}')
 
     def test_search_no_bibcode_payload(self):
         """
@@ -142,7 +142,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no bibcode submitted"}')
+        self.assertEqual(response, b'{"error": "no bibcode submitted"}')
 
     def test_export_no_payload_param(self):
         """
@@ -152,7 +152,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no selection found in payload (parameter name is `selected`)"}')
+        self.assertEqual(response, b'{"error": "no selection found in payload (parameter name is `selected`)"}')
 
     def test_payload_param_error_max_author(self):
         """
@@ -163,7 +163,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "parameter maxauthor should be a positive integer >= 0"}')
+        self.assertEqual(response, b'{"error": "parameter maxauthor should be a positive integer >= 0"}')
 
 
     def test_payload_param_error_cutoff_year(self):
@@ -175,7 +175,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "parameter numyears should be positive integer > 0"}')
+        self.assertEqual(response, b'{"error": "parameter numyears should be positive integer > 0"}')
 
 
     def test_payload_param_error_empty_selection(self):
@@ -187,7 +187,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "no selection submitted"}')
+        self.assertEqual(response, b'{"error": "no selection submitted"}')
 
 
     def test_payload_param_error_wrong_format(self):
@@ -199,7 +199,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "unrecognizable export format specified"}')
+        self.assertEqual(response, b'{"error": "unrecognizable export format specified"}')
 
 
     def test_payload_param_error_unrecognizable_format(self):
@@ -211,7 +211,7 @@ class TestAuthorAffiliation(TestCase):
         status = r.status_code
         response = r.data
         self.assertEqual(status, 400)
-        self.assertEqual(response, '{"error": "unrecognizable export format specified"}')
+        self.assertEqual(response, b'{"error": "unrecognizable export format specified"}')
 
     def test_is_number(self):
         """
