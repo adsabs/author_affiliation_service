@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from builtins import str
+from builtins import zip
+from builtins import range
+from builtins import object
 from flask import current_app, request, Blueprint, Response, redirect
 from flask_discoverer import advertise
 from flask import Response
@@ -70,7 +74,7 @@ class Export(object):
         :param the_string:
         :return:
         """
-        if isinstance(the_string, unicode):
+        if isinstance(the_string, str):
             return unidecode.unidecode(the_string)
         return the_string
 
@@ -80,7 +84,7 @@ class Export(object):
         :return:
         """
         csv_string = ''
-        authors = self.selected_authors.keys()
+        authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
             csv_string = csv_string + '"' + author + '",'
@@ -96,7 +100,7 @@ class Export(object):
         :return:
         """
         csv_string = ''
-        authors = self.selected_authors.keys()
+        authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
             author_split = author.split(',', 1)
@@ -122,7 +126,7 @@ class Export(object):
         sheet = wbk.add_sheet(self.EXPORT_FILENAME)
 
         row = 0
-        authors = self.selected_authors.keys()
+        authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
             sheet.write(row, 0, author)
@@ -138,7 +142,7 @@ class Export(object):
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
         wbk.save(filename)
         # now read it
-        xls_file = open(filename)
+        xls_file = open(filename, encoding='ISO-8859-1')
         xls_str = xls_file.read()
         xls_file.close()
         # finally remove it
@@ -155,7 +159,7 @@ class Export(object):
         sheet = wbk.add_sheet(self.EXPORT_FILENAME)
 
         row = 0
-        authors = self.selected_authors.keys()
+        authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
             # split the author name on the first comma
@@ -180,7 +184,7 @@ class Export(object):
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
         wbk.save(filename)
         # now read it
-        xls_file = open(filename)
+        xls_file = open(filename, encoding='ISO-8859-1')
         xls_str = xls_file.read()
         xls_file.close()
         # finally remove it
@@ -193,7 +197,7 @@ class Export(object):
         :return:
         """
         txt_string = ''
-        authors = self.selected_authors.keys()
+        authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
             txt_string = txt_string + author + ' ('
@@ -294,7 +298,7 @@ class Export(object):
 
 
 
-class Formatter:
+class Formatter(object):
     """
     class to get the data from solr and format it for the form.
     """
