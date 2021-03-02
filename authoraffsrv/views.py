@@ -142,7 +142,7 @@ class Export(object):
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
         wbk.save(filename)
         # now read it
-        xls_file = open(filename, encoding='ISO-8859-1')
+        xls_file = open(filename, 'rb')
         xls_str = xls_file.read()
         xls_file.close()
         # finally remove it
@@ -184,7 +184,7 @@ class Export(object):
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
         wbk.save(filename)
         # now read it
-        xls_file = open(filename, encoding='ISO-8859-1')
+        xls_file = open(filename, 'rb')
         xls_str = xls_file.read()
         xls_file.close()
         # finally remove it
