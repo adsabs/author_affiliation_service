@@ -17,7 +17,8 @@ from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS, is_number
 class TestAuthorAffiliation(TestCase):
     def create_app(self):
         #Start the wsgi application
-        return app.create_app()
+        self.current_app = app.create_app()
+        return self.current_app
 
     def test_formatted_data(self):
         # format the stubdata using the code
@@ -283,46 +284,41 @@ class TestAuthorAffiliation(TestCase):
         # so affilation was overwritten with canonical version
         response = [
             {
-                'bibcode': '2020AAS...23528705A',
-                'identifier': ['2020AAS...23528705A'],
-                'aff': ['ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-', '-', '-', '-',
-                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-',
-                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA',
-                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-',
-                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA']
+                'bibcode': '2019AAS...23320704A',
+                'identifier': ['2019AAS...23320704A'],
+                'aff': ['Harvard Smithsonian Center for Astrophysics']
+            },{
+                'bibcode': '2020AAS...23528705A', 'identifier': ['2020AAS...23528705A'],
+                'aff': [
+                 'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-', '-', '-', '-',
+                 'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-',
+                 'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA',
+                 'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-',
+                 'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA']
             },{
                 'bibcode': '2019EPSC...13.1911A',
                 'identifier': ['2019EPSC...13.1911A'],
-                'aff': ['NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
-                        'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
-                        'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United Statesu']
-            }, {
+                'aff': [
+                    'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States']
+            },{
                 'bibcode': '2019AAS...23338108A',
                 'identifier': ['2019AAS...23338108A'],
-                'aff': ['Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics',
-                        'Harvard Smithsonian Center for Astrophysics']
-            }, {
-                'bibcode': '2019AAS...23320704A',
-                'identifier': ['2019AAS...23320704A'],
-                'aff': ['Harvard Smithsonian Center for Astrophysicsu']
+                'aff': [
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics',
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics',
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics',
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics',
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics',
+                    'Harvard Smithsonian Center for Astrophysics', 'Harvard Smithsonian Center for Astrophysics']
             }
         ]
-        with mock.patch.object(self.client, 'get') as get_mock:
-            get_mock.return_value = mock_response = mock.Mock()
+        with mock.patch.object(self.current_app.client, 'post') as post_mock:
+            post_mock.return_value = mock_response = mock.Mock()
             mock_response.json.return_value = solrdata.data_2
             mock_response.status_code = 200
             solr_data = get_solr_data(bibcodes=bibcodes, cutoff_year=2018)
-            print(solr_data['response']['docs'])
             self.assertEqual(solr_data['response']['docs'], response)
 
 if __name__ == '__main__':

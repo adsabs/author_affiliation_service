@@ -24,14 +24,17 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
         'fq': '{!bitset}'
     }
 
+    authorization = current_app.config.get('SERVICE_TOKEN', None) or \
+                    request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', ''))
+
     headers = {
-        'Authorization': current_app.config.get('SERVICE_TOKEN', request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', ''))),
+        'Authorization': authorization,
         'Content-Type': 'big-query/csv',
     }
 
 
     try:
-        response = client().post(
+        response = current_app.client.post(
             url=current_app.config['AUTHOR_AFFILIATION_SOLRQUERY_URL'],
             params=params,
             data=data,

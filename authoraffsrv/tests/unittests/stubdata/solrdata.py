@@ -3967,8 +3967,8 @@ data_2 = \
             {
                 u'bibcode': u'2019AAS...23320704A',
                 u'identifier':[u'2019AAS...23320704A'],
-                u'aff': [u'Harvard-Smithsonian Center for Astrophysics, Cambridge, MA, United Statesu'],
-                u'aff_canonical': [u'Harvard Smithsonian Center for Astrophysicsu']},
+                u'aff': [u'Harvard-Smithsonian Center for Astrophysics, Cambridge, MA, United States'],
+                u'aff_canonical': [u'Harvard Smithsonian Center for Astrophysics']},
             {
                 u'bibcode': u'2020AAS...23528705A',
                 u'identifier': [u'2020AAS...23528705A'],
@@ -3993,7 +3993,7 @@ data_2 = \
                 u'aff': [
                     u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
                     u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
-                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United Statesu'],
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States'],
             },
             {
                 u'bibcode': u'2019AAS...23338108A',
