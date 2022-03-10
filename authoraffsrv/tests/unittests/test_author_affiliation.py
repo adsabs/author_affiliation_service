@@ -7,9 +7,11 @@ sys.path.append(PROJECT_HOME)
 
 from flask_testing import TestCase
 import unittest
+import mock
 
 import authoraffsrv.app as app
 from authoraffsrv.tests.unittests.stubdata import solrdata, formatted, export
+from authoraffsrv.utils import get_solr_data
 from authoraffsrv.views import Formatter, Export, EXPORT_FORMATS, is_number
 
 class TestAuthorAffiliation(TestCase):
@@ -271,6 +273,57 @@ class TestAuthorAffiliation(TestCase):
         # now compare it with an already formatted data that we know is correct
         self.assertEqual(formatted_data, formatted.data2)
 
+
+    def test_switch_to_canonical_affilation(self):
+        """
+        Tests to use canonical affilation if available, otherwise go with affilation
+        """
+        bibcodes = ["2020AAS...23528705A", "2019EPSC...13.1911A", "2019AAS...23338108A", "2019AAS...23320704A"]
+        # the first two had no canonical affilations, so affilation is used, the last two had canonical affilations,
+        # so affilation was overwritten with canonical version
+        response = [
+            {
+                'bibcode': '2020AAS...23528705A',
+                'identifier': ['2020AAS...23528705A'],
+                'aff': ['ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-', '-', '-', '-',
+                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-',
+                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA',
+                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA', '-', '-',
+                        'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA']
+            },{
+                'bibcode': '2019EPSC...13.1911A',
+                'identifier': ['2019EPSC...13.1911A'],
+                'aff': ['NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                        'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                        'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United Statesu']
+            }, {
+                'bibcode': '2019AAS...23338108A',
+                'identifier': ['2019AAS...23338108A'],
+                'aff': ['Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics',
+                        'Harvard Smithsonian Center for Astrophysics']
+            }, {
+                'bibcode': '2019AAS...23320704A',
+                'identifier': ['2019AAS...23320704A'],
+                'aff': ['Harvard Smithsonian Center for Astrophysicsu']
+            }
+        ]
+        with mock.patch.object(self.client, 'get') as get_mock:
+            get_mock.return_value = mock_response = mock.Mock()
+            mock_response.json.return_value = solrdata.data_2
+            mock_response.status_code = 200
+            solr_data = get_solr_data(bibcodes=bibcodes, cutoff_year=2018)
+            print(solr_data['response']['docs'])
+            self.assertEqual(solr_data['response']['docs'], response)
 
 if __name__ == '__main__':
   unittest.main()
