@@ -12,7 +12,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
 
     query = 'year:' + str(cutoff_year) + '-3000'
 
-    fields = 'author,aff,pubdate'
+    fields = 'author,aff,aff_canonical,pubdate'
 
     params = {
         'q': query,
@@ -24,14 +24,17 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
         'fq': '{!bitset}'
     }
 
+    authorization = current_app.config.get('SERVICE_TOKEN', None) or \
+                    request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', ''))
+
     headers = {
-        'Authorization': current_app.config.get('SERVICE_TOKEN', request.headers.get('X-Forwarded-Authorization', request.headers.get('Authorization', ''))),
+        'Authorization': authorization,
         'Content-Type': 'big-query/csv',
     }
 
 
     try:
-        response = client().post(
+        response = current_app.client.post(
             url=current_app.config['AUTHOR_AFFILIATION_SOLRQUERY_URL'],
             params=params,
             data=data,
@@ -43,6 +46,11 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
             if (from_solr.get('response')):
                 num_docs = from_solr['response'].get('numFound', 0)
                 if num_docs > 0:
+                    for doc in from_solr['response']['docs']:
+                        # if canonical affiliation is available use that, otherwise use aff
+                        aff_canonical = doc.pop('aff_canonical', None)
+                        if aff_canonical:
+                            doc.update({u'aff': aff_canonical})
                     return from_solr
         else:
             current_app.logger.warn('Non-standard status from solr detected: %s, \n%s' % (response.status_code, response.json()))
