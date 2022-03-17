@@ -2,9 +2,9 @@
 from builtins import str
 from flask import current_app, request
 import requests
+import re
 
-from authoraffsrv.client import client
-
+re_valid_affiliation = re.compile(r'[A-Za-z]{3,}')
 def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
     data = 'bibcode\n' + '\n'.join(bibcodes)
 
@@ -47,10 +47,11 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
                 num_docs = from_solr['response'].get('numFound', 0)
                 if num_docs > 0:
                     for doc in from_solr['response']['docs']:
-                        # if canonical affiliation is available use that, otherwise use aff
+                        # if canonical affiliation is a valid affiliation, isn't just dashes use that, otherwise use aff
                         aff_canonical = doc.pop('aff_canonical', None)
                         if aff_canonical:
-                            doc.update({u'aff': aff_canonical})
+                            aff = [canonical if len(re_valid_affiliation.findall(canonical)) > 0 else regular for regular, canonical in zip(doc.get('aff'), aff_canonical)]
+                            doc.update({u'aff': aff})
                     return from_solr
         else:
             current_app.logger.warn('Non-standard status from solr detected: %s, \n%s' % (response.status_code, response.json()))

@@ -3951,7 +3951,7 @@ data2 = \
    }
 }
 
-data_2 = \
+data3 = \
 {
     u'responseHeader': {
         u'status': 0,
@@ -3986,6 +3986,20 @@ data_2 = \
                     u'-',
                     u'-',
                     u'ADS, Center for Astrophysics | Harvard & Smithsonian, Cambridge, MA'],
+                u'aff_canonical': [
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    u'-',
+                    u'-',
+                    u'-',
+                    u'-',
+                    u'-',
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    u'-',
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States',
+                    u'-',
+                    u'-',
+                    u'NASA Astrophysics Data System, Center for Astrophysics | Harvard & Smithsonian, Cambridge MA, United States'],
             },
             {
                 u'bibcode': u'2019EPSC...13.1911A',
