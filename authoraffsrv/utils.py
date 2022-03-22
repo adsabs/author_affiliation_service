@@ -50,7 +50,7 @@ def get_solr_data(bibcodes, cutoff_year, start=0, sort='date desc'):
                         # if canonical affiliation is a valid affiliation, isn't just dashes use that, otherwise use aff
                         aff_canonical = doc.pop('aff_canonical', None)
                         if aff_canonical:
-                            aff = [canonical if len(re_valid_affiliation.findall(canonical)) > 0 else regular for regular, canonical in zip(doc.get('aff'), aff_canonical)]
+                            aff = [canonical if re_valid_affiliation.findall(canonical) else regular for regular, canonical in zip(doc.get('aff'), aff_canonical)]
                             doc.update({u'aff': aff})
                     return from_solr
         else:
