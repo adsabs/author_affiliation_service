@@ -376,6 +376,11 @@ class Formatter(object):
                 if (len(true_date) > 0):
                     true_date += '/'
                 true_date += part
+            else:
+                if (len(true_date) > 0):
+                    true_date += '/'
+                true_date += '01'
+
         return true_date
 
 
