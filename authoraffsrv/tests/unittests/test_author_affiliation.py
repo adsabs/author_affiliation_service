@@ -8,6 +8,8 @@ sys.path.append(PROJECT_HOME)
 from flask_testing import TestCase
 import unittest
 import mock
+import openpyxl
+from io import BytesIO
 
 import authoraffsrv.app as app
 from authoraffsrv.tests.unittests.stubdata import solrdata, formatted, export
@@ -50,14 +52,26 @@ class TestAuthorAffiliation(TestCase):
     def test_export_excel_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[2])
+        with open(str(PROJECT_HOME)+'/authoraffsrv/tests/unittests/stubdata/ADS_Author-Affiliation.xlsx', 'rb') as f:
+            test_xlsx = f.read()
+        test_wbk = openpyxl.Workbook(BytesIO(test_xlsx))
+        test_sheet = test_wbk.active
+        exported_wbk = openpyxl.Workbook(BytesIO(exported_data))
+        exported_sheet = exported_wbk.active
         # now compare it with an already formatted data that we know is correct
-        self.assertEqual(len(exported_data), 5632)
+        self.assertEqual(exported_sheet, test_sheet)
 
     def test_export_excel_div_format(self):
         # format the stubdata using the code
         exported_data = Export(export.form_data).format(EXPORT_FORMATS[3])
+        with open(str(PROJECT_HOME)+'/authoraffsrv/tests/unittests/stubdata/ADS_Author-Affiliation-Div.xlsx', 'rb') as f:
+            test_xlsx = f.read()
+        test_wbk = openpyxl.Workbook(BytesIO(test_xlsx))
+        test_sheet = test_wbk.active
+        exported_wbk = openpyxl.Workbook(BytesIO(exported_data))
+        exported_sheet = exported_wbk.active
         # now compare it with an already formatted data that we know is correct
-        self.assertEqual(len(exported_data), 5632)
+        self.assertEqual(exported_sheet, test_sheet)
 
     def test_export_text_format(self):
         # format the stubdata using the code

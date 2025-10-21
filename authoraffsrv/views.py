@@ -16,7 +16,7 @@ sys.path.append(basedir)
 import datetime
 import re
 import json
-import xlwt
+import openpyxl
 import uuid
 import unidecode
 
@@ -122,21 +122,16 @@ class Export(object):
         :return:
         """
         # Create workbook and worksheet
-        wbk = xlwt.Workbook(encoding='UTF-8')
-        sheet = wbk.add_sheet(self.EXPORT_FILENAME)
+        wbk = openpyxl.Workbook()
+        sheet = wbk.active
 
         row = 0
         authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
-            sheet.write(row, 0, author)
-            col = 1
             for value in self.selected_authors[author]:
                 [affiliation, last_active] = value.split('|')
-                sheet.write(row, col, affiliation)
-                sheet.write(row, col+1, last_active)
-                col += 2
-            row += 1
+                sheet.append([author, affiliation, last_active])
 
         # save the spreadsheet to a temporary file
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
@@ -155,10 +150,9 @@ class Export(object):
         :return:
         """
         # Create workbook and worksheet
-        wbk = xlwt.Workbook(encoding='UTF-8')
-        sheet = wbk.add_sheet(self.EXPORT_FILENAME)
+        wbk = openpyxl.Workbook()
+        sheet = wbk.active
 
-        row = 0
         authors = list(self.selected_authors.keys())
         authors.sort()
         for author in authors:
@@ -169,16 +163,9 @@ class Export(object):
             except IndexError:
                 author_split.append('')
             # write the author name
-            sheet.write(row, 0, author_split[0])
-            sheet.write(row, 1, author_split[1])
-            # write the affiliations
-            col = 2
             for value in self.selected_authors[author]:
                 [affiliation, last_active] = value.split('|')
-                sheet.write(row, col, affiliation)
-                sheet.write(row, col+1, last_active)
-                col += 2
-            row += 1
+                sheet.append([author_split[0], author_split[1], affiliation, last_active])
 
         # save the spreadsheet to a temporary file
         filename = self.TMP_EXCEL_FOLDER + self.EXPORT_FILENAME + str(uuid.uuid4())
